@@ -1,0 +1,13 @@
+name: Supabase Keep Alive
+on:
+  schedule:
+    - cron: '0 8 * * *'  # todo dia às 08h
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase
+        run: |
+          curl -s "https://vgdqlilrkueqxocjnlfo.supabase.co/rest/v1/inscricoes?select=id&limit=1" \
+          -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnZHFsaWxya3VlcXhvY2pubGZvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1Nzc5MDIsImV4cCI6MjA4ODE1MzkwMn0.iQAMuPcJUhUxJ3mfo945z2Gh5fvIFYuS6kh1VwpG-WA"
+          echo "Ping OK"
