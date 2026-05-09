@@ -467,6 +467,453 @@ td{padding:11px 11px;font-size:12.5px;vertical-align:middle}
 #sbWarn a{color:#fde047;text-decoration:underline}
 #sbWarn strong{color:#fff}
 
+
+/* ═══════════════════════════════════════════════════════════════
+   GLASSMORPHISM — Frosted glass surfaces with depth
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Navigation — premium glass bar */
+#nav{
+  background:rgba(4,17,31,.72)!important;
+  backdrop-filter:blur(22px) saturate(180%)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(180%)!important;
+  border-bottom:1px solid rgba(255,255,255,.09)!important;
+  box-shadow:0 4px 30px rgba(0,0,0,.35),0 1px 0 rgba(255,255,255,.06) inset!important;
+}
+
+/* Modal cards — glass panels */
+.mod-card{
+  background:rgba(255,255,255,.055)!important;
+  backdrop-filter:blur(14px) saturate(140%)!important;
+  -webkit-backdrop-filter:blur(14px) saturate(140%)!important;
+  border:1px solid rgba(255,255,255,.13)!important;
+  box-shadow:0 8px 32px rgba(0,0,0,.28),0 1px 0 rgba(255,255,255,.1) inset!important;
+  transition:all .28s ease!important;
+}
+.mod-card:hover{
+  background:rgba(255,255,255,.085)!important;
+  border-color:rgba(255,255,255,.22)!important;
+  box-shadow:0 16px 48px rgba(0,0,0,.38),0 1px 0 rgba(255,255,255,.15) inset!important;
+  transform:translateY(-4px) scale(1.02)!important;
+}
+
+/* Hero badge — floating glass pill */
+.hero-badge{
+  background:rgba(217,106,14,.12)!important;
+  backdrop-filter:blur(12px)!important;
+  -webkit-backdrop-filter:blur(12px)!important;
+  border:1.5px solid rgba(217,106,14,.28)!important;
+  box-shadow:0 4px 20px rgba(217,106,14,.15),0 1px 0 rgba(255,255,255,.1) inset!important;
+}
+
+/* KPI cards in admin — glass metric tiles */
+.kpi{
+  background:rgba(255,255,255,.05)!important;
+  backdrop-filter:blur(10px)!important;
+  -webkit-backdrop-filter:blur(10px)!important;
+  border:1px solid rgba(255,255,255,.1)!important;
+  box-shadow:0 8px 28px rgba(0,0,0,.25),0 1px 0 rgba(255,255,255,.07) inset!important;
+  transition:all .25s ease!important;
+}
+.kpi:hover{
+  background:rgba(255,255,255,.08)!important;
+  transform:translateY(-2px)!important;
+  box-shadow:0 12px 36px rgba(0,0,0,.32)!important;
+}
+
+/* Aluno sections — glass content panels */
+.aluno-sec{
+  background:rgba(255,255,255,.045)!important;
+  backdrop-filter:blur(10px)!important;
+  -webkit-backdrop-filter:blur(10px)!important;
+  border:1px solid rgba(255,255,255,.09)!important;
+  box-shadow:0 8px 32px rgba(0,0,0,.22),0 1px 0 rgba(255,255,255,.07) inset!important;
+}
+
+/* Form header — glass panel */
+.form-header{
+  backdrop-filter:blur(16px)!important;
+  -webkit-backdrop-filter:blur(16px)!important;
+  background:rgba(255,255,255,.05)!important;
+  border:1px solid rgba(255,255,255,.1)!important;
+  box-shadow:0 4px 24px rgba(0,0,0,.2),0 1px 0 rgba(255,255,255,.08) inset!important;
+}
+
+/* Colega cards — glass avatars */
+.colega-card{
+  background:rgba(255,255,255,.045)!important;
+  backdrop-filter:blur(8px)!important;
+  -webkit-backdrop-filter:blur(8px)!important;
+  border:1px solid rgba(255,255,255,.09)!important;
+  box-shadow:0 4px 16px rgba(0,0,0,.2)!important;
+  transition:all .2s ease!important;
+}
+.colega-card:hover{
+  background:rgba(255,255,255,.075)!important;
+  transform:translateY(-2px)!important;
+}
+
+/* Obs box — amber glass */
+.obs-box{
+  backdrop-filter:blur(12px)!important;
+  -webkit-backdrop-filter:blur(12px)!important;
+  box-shadow:0 4px 24px rgba(245,200,66,.1),0 1px 0 rgba(245,200,66,.12) inset!important;
+}
+
+/* Form gate box — glass panel */
+.form-gate-box{
+  backdrop-filter:blur(20px)!important;
+  -webkit-backdrop-filter:blur(20px)!important;
+  background:rgba(255,255,255,.06)!important;
+  border:1px solid rgba(255,255,255,.12)!important;
+  box-shadow:0 16px 48px rgba(0,0,0,.4),0 1px 0 rgba(255,255,255,.1) inset!important;
+}
+
+/* Status timeline steps */
+.st-step:not(:last-child)::after{
+  background:linear-gradient(to bottom,rgba(255,255,255,.15),rgba(255,255,255,.04))!important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CLAYMORPHISM — Puffy, inflated, multi-shadow depth
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Countdown digits — clay tiles */
+.cd-item{
+  background:linear-gradient(145deg,rgba(30,75,181,.3),rgba(15,40,100,.5))!important;
+  border:none!important;
+  border-radius:18px!important;
+  box-shadow:
+    0 6px 0 rgba(0,0,0,.35),
+    0 12px 28px rgba(0,0,0,.3),
+    0 -1px 0 rgba(255,255,255,.12) inset,
+    0 1px 2px rgba(255,255,255,.08) inset!important;
+  transition:transform .15s ease,box-shadow .15s ease!important;
+}
+.cd-item:hover{
+  transform:translateY(-2px)!important;
+  box-shadow:
+    0 8px 0 rgba(0,0,0,.35),
+    0 16px 36px rgba(0,0,0,.3),
+    0 -1px 0 rgba(255,255,255,.12) inset!important;
+}
+
+/* Primary orange button — clay CTA */
+.btn-orange{
+  background:linear-gradient(145deg,#f09030,#c55c0a)!important;
+  border-radius:14px!important;
+  box-shadow:
+    0 5px 0 rgba(120,40,0,.5),
+    0 8px 24px rgba(217,106,14,.4),
+    0 -1px 0 rgba(255,220,120,.3) inset!important;
+  transform:translateY(-1px)!important;
+  transition:all .15s ease!important;
+}
+.btn-orange:hover{
+  transform:translateY(-3px)!important;
+  box-shadow:
+    0 7px 0 rgba(120,40,0,.5),
+    0 12px 32px rgba(217,106,14,.5),
+    0 -1px 0 rgba(255,220,120,.3) inset!important;
+}
+.btn-orange:active{
+  transform:translateY(2px)!important;
+  box-shadow:
+    0 2px 0 rgba(120,40,0,.5),
+    0 4px 12px rgba(217,106,14,.3)!important;
+}
+
+/* Green button — clay success */
+.btn-green{
+  background:linear-gradient(145deg,#30d070,#0ea040)!important;
+  border-radius:14px!important;
+  box-shadow:
+    0 5px 0 rgba(0,80,30,.5),
+    0 8px 24px rgba(34,197,94,.35),
+    0 -1px 0 rgba(150,255,180,.3) inset!important;
+  transform:translateY(-1px)!important;
+  transition:all .15s ease!important;
+}
+.btn-green:hover{
+  transform:translateY(-3px)!important;
+  box-shadow:
+    0 7px 0 rgba(0,80,30,.5),
+    0 12px 32px rgba(34,197,94,.45),
+    0 -1px 0 rgba(150,255,180,.3) inset!important;
+}
+.btn-green:active{
+  transform:translateY(2px)!important;
+  box-shadow:0 2px 0 rgba(0,80,30,.5)!important;
+}
+
+/* Blue outline button — clay glass hybrid */
+.btn-blue{
+  border-radius:14px!important;
+  box-shadow:0 4px 16px rgba(79,140,255,.2),0 1px 0 rgba(79,140,255,.15) inset!important;
+  transition:all .15s ease!important;
+}
+.btn-blue:hover{
+  transform:translateY(-2px)!important;
+  box-shadow:0 8px 24px rgba(79,140,255,.3),0 1px 0 rgba(79,140,255,.2) inset!important;
+}
+
+/* Ghost button */
+.btn-ghost{
+  border-radius:14px!important;
+  box-shadow:0 3px 12px rgba(0,0,0,.2)!important;
+  transition:all .15s ease!important;
+}
+.btn-ghost:hover{
+  transform:translateY(-2px)!important;
+  box-shadow:0 6px 20px rgba(0,0,0,.3)!important;
+}
+
+/* Stepper circles — clay bubbles */
+.stp-c{
+  border-radius:50%!important;
+  box-shadow:
+    0 3px 0 rgba(0,0,0,.3),
+    0 5px 16px rgba(0,0,0,.2),
+    0 -1px 0 rgba(255,255,255,.1) inset!important;
+  transition:all .25s ease!important;
+}
+.stp-c.active{
+  background:linear-gradient(145deg,#f09030,#c55c0a)!important;
+  border-color:transparent!important;
+  box-shadow:
+    0 4px 0 rgba(120,40,0,.4),
+    0 8px 20px rgba(217,106,14,.4),
+    0 -1px 0 rgba(255,220,120,.25) inset!important;
+}
+.stp-c.done{
+  background:linear-gradient(145deg,#30d070,#0ea040)!important;
+  border-color:transparent!important;
+  box-shadow:
+    0 4px 0 rgba(0,80,30,.4),
+    0 8px 20px rgba(34,197,94,.3),
+    0 -1px 0 rgba(150,255,180,.25) inset!important;
+}
+
+/* Carteirinha — clay card */
+.carteirinha{
+  border-radius:22px!important;
+  box-shadow:
+    0 8px 0 rgba(0,0,0,.4),
+    0 16px 48px rgba(0,0,0,.5),
+    0 -1px 0 rgba(79,140,255,.2) inset!important;
+  border:1.5px solid rgba(79,140,255,.3)!important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SKEUOMORPHISM — Realistic depth, texture, emboss
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Form inputs — embossed/debossed input fields */
+.fi{
+  background:rgba(2,9,18,.6)!important;
+  border:1.5px solid rgba(0,0,0,.5)!important;
+  border-bottom-color:rgba(255,255,255,.08)!important;
+  border-right-color:rgba(255,255,255,.05)!important;
+  box-shadow:
+    0 2px 4px rgba(0,0,0,.4) inset,
+    0 1px 0 rgba(255,255,255,.06)!important;
+  border-radius:10px!important;
+  transition:all .2s ease!important;
+}
+.fi:focus{
+  background:rgba(2,9,18,.8)!important;
+  border-color:rgba(79,140,255,.55)!important;
+  box-shadow:
+    0 2px 6px rgba(0,0,0,.5) inset,
+    0 0 0 3px rgba(79,140,255,.12),
+    0 1px 0 rgba(255,255,255,.06)!important;
+  outline:none!important;
+}
+
+/* Portal card — embossed panel with top chrome edge */
+.portal-card{
+  background:linear-gradient(170deg,rgba(10,37,64,.95) 0%,rgba(4,17,31,.98) 100%)!important;
+  border:1px solid rgba(255,255,255,.08)!important;
+  border-top:4px solid #4f8cff!important;
+  box-shadow:
+    0 24px 60px rgba(0,0,0,.55),
+    0 2px 0 rgba(79,140,255,.2) inset,
+    0 -1px 0 rgba(0,0,0,.6)!important;
+  border-radius:20px!important;
+}
+
+/* Form wrap — embossed container with subtle texture */
+.form-wrap{
+  position:relative!important;
+}
+.form-wrap::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(ellipse at 20% 20%,rgba(30,75,181,.06) 0%,transparent 60%),
+    radial-gradient(ellipse at 80% 80%,rgba(217,106,14,.05) 0%,transparent 60%);
+  pointer-events:none;
+  z-index:-1;
+}
+
+/* Nav brand — skeu chrome base */
+.nav-brand{
+  background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(255,255,255,.01))!important;
+  padding:4px 10px 4px 4px!important;
+  border-radius:10px!important;
+  border:1px solid rgba(255,255,255,.06)!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.07) inset,0 2px 8px rgba(0,0,0,.2)!important;
+  cursor:pointer!important;
+  transition:all .2s ease!important;
+}
+.nav-brand:hover{
+  background:linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.03))!important;
+}
+
+/* Admin nav buttons — embossed badges */
+.nav-admin{
+  box-shadow:
+    0 2px 0 rgba(100,40,0,.5),
+    0 4px 12px rgba(217,106,14,.25),
+    0 -1px 0 rgba(255,200,100,.15) inset!important;
+  transition:all .15s ease!important;
+}
+.nav-admin:hover{
+  transform:translateY(-1px)!important;
+  box-shadow:
+    0 3px 0 rgba(100,40,0,.5),
+    0 6px 16px rgba(217,106,14,.3)!important;
+}
+.nav-prof-btn,.nav-aluno-btn{
+  box-shadow:
+    0 2px 0 rgba(0,20,60,.5),
+    0 4px 12px rgba(79,140,255,.15),
+    0 -1px 0 rgba(120,180,255,.12) inset!important;
+  transition:all .15s ease!important;
+}
+.nav-prof-btn:hover,.nav-aluno-btn:hover{
+  transform:translateY(-1px)!important;
+}
+
+/* Status dots — dimensional indicators */
+.st-dot.done{
+  box-shadow:
+    0 3px 0 rgba(0,60,20,.5),
+    0 4px 16px rgba(34,197,94,.25),
+    0 -1px 0 rgba(150,255,180,.15) inset!important;
+}
+.st-dot.curr{
+  box-shadow:
+    0 3px 0 rgba(80,60,0,.4),
+    0 4px 16px rgba(245,200,66,.3),
+    0 -1px 0 rgba(255,240,130,.15) inset!important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ENHANCED TRANSITIONS & MICRO-INTERACTIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Smooth page transition feeling */
+.page.active{
+  animation:pageIn .3s ease forwards!important;
+}
+@keyframes pageIn{
+  from{opacity:.7;transform:translateY(6px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Card hover lift for aluno sections */
+.aluno-sec:hover{
+  background:rgba(255,255,255,.06)!important;
+  border-color:rgba(255,255,255,.13)!important;
+  transition:all .25s ease!important;
+}
+
+/* Modal card icon bounce */
+.mod-card:hover .mod-card-icon{
+  transform:scale(1.15) translateY(-2px)!important;
+  display:inline-block!important;
+}
+.mod-card-icon{
+  transition:transform .25s ease!important;
+  display:inline-block!important;
+}
+
+/* Countdown number pulse when changing */
+.cd-num{
+  transition:transform .1s ease!important;
+}
+
+/* KPI number emphasis */
+.kpi-v{
+  text-shadow:0 0 20px currentColor!important;
+}
+
+/* Form steps connector line — glass groove */
+.stp-line{
+  background:linear-gradient(90deg,rgba(34,197,94,.4),rgba(255,255,255,.08),rgba(34,197,94,.1))!important;
+  height:2px!important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CARTEIRINHA GLOW EFFECT
+   ═══════════════════════════════════════════════════════════════ */
+.carteirinha{
+  position:relative!important;
+}
+.carteirinha::before{
+  content:'ARC 2026';
+  position:absolute;
+  right:-10px;top:50%;
+  transform:translateY(-50%) rotate(90deg);
+  font-family:'Rajdhani',sans-serif;
+  font-size:56px;font-weight:700;
+  color:rgba(255,255,255,.022);
+  pointer-events:none;white-space:nowrap;
+}
+.carteirinha::after{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,#1e4bb5,#4f8cff,#d96a0e,#f09030);
+  background-size:200% 100%;
+  animation:gradientShift 3s ease infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO SECTION — Glass shimmer on title
+   ═══════════════════════════════════════════════════════════════ */
+.hero-logo{
+  filter:drop-shadow(0 0 28px rgba(217,106,14,.45)) drop-shadow(0 0 60px rgba(79,140,255,.2))!important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOD MODAL — Glass overlay
+   ═══════════════════════════════════════════════════════════════ */
+#modModal .modal-box{
+  backdrop-filter:blur(28px) saturate(160%)!important;
+  -webkit-backdrop-filter:blur(28px) saturate(160%)!important;
+  background:rgba(4,17,31,.88)!important;
+  border:1px solid rgba(255,255,255,.12)!important;
+  box-shadow:0 24px 80px rgba(0,0,0,.7),0 1px 0 rgba(255,255,255,.08) inset!important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SEC TITLE — Subtle glass underline
+   ═══════════════════════════════════════════════════════════════ */
+.sec-title{
+  text-shadow:0 0 30px rgba(147,187,255,.2)!important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+@media(max-width:640px){
+  #nav{backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important;}
+  .cd-item{border-radius:14px!important;}
+  .btn-orange,.btn-green{border-radius:12px!important;}
+}
+
 </style>
 </head>
 <body>
