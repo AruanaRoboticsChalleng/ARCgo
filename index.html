@@ -2305,10 +2305,6 @@ body::after{
       </div>
     </div>
 
-    <div class="docs-note reveal">
-      <strong>Regras rápidas:</strong> o arquivo separado de regras não apareceu na pasta atual do Drive. As regras oficiais continuam no Edital ARC 2026; se a organização subir um novo PDF, basta adicionar a entrada em <code>ARC_DOCS</code>.
-    </div>
-
     <div style="margin-top:28px" class="reveal">
       <div class="dl-section-title" style="background:rgba(66,133,244,.1);border:1.5px solid rgba(66,133,244,.3);color:#93bbff">📁 Google Drive · fonte oficial</div>
       <div style="background:rgba(66,133,244,.06);border:2px solid rgba(66,133,244,.22);border-radius:18px;padding:28px;position:relative;overflow:hidden">
@@ -2409,7 +2405,7 @@ body::after{
 'use strict';
 var ARC_DRIVE_FOLDER='https://drive.google.com/drive/folders/1aI6s6WEMY5i7W22pPc3Etc2fMSLLSedH';
 var ARC_DOCS={
-  'Edital_ARC2026.pdf':{id:'1seA6dGeFfGn7LWMa8HX_08y1u_j0PnaV',name:'Edital_ARC.pdf',label:'Edital ARC 2026',size:'1.7 MB'},
+  'Edital_ARC2026.pdf':{id:'1-zEJzelkE_cqP13XHoYXkuMs_I6S4AYP',name:'Edital_ARC.pdf',label:'Edital ARC 2026',size:'1.7 MB'},
   'EcoSentry_ARC2026.pdf':{id:'1CLsE0mAyBQLMdMzUPgDp09Kw3Y44sK7q',name:'EcoSentry_ACR2026_Final.pdf',label:'Caderno EcoSentry',size:'4.4 MB'},
   'Termo_Menor_ARC2026.pdf':{id:'1sWMemtoKs7nHNamSA0PwrTDcDUyYXNUj',name:'TERMO_DE_PARTICIPACAO_E_USO_DE_IMAGEM_DO_MENOR.pdf',label:'Termo do Aluno Menor',size:'189 KB'},
   'Termo_Mentor_ARC2026.pdf':{id:'1Y-6VBzUSeuLkEFXnAOh0D0Yb_3_TakV6',name:'TERMO_DE_PARTICIPACAO_E_USO_DE_IMAGEM_DO_TECNICO_MENTOR.pdf',label:'Termo Técnico/Mentor',size:'183 KB'}
@@ -2424,7 +2420,7 @@ var MODS=[
   {id:'linha',icon:'⚡',name:'Seguidor de Linha',sub:'Velocidade · Precisão',desc:'O robô percorre pista com linha preta (2 cm) sobre fundo claro. A pista tem até 2,5 m com retas, curvas, círculo e ziguezague.',rules:['Controle 100% autônomo · 1 robô por equipe','Até 2 sensores iguais (não se aplica à controladora)','Até 3 intervenções · Round máximo de 5 minutos','Sair totalmente da linha invalida a tentativa','Tocar no robô invalida a tentativa','Entrar na área sem autorização = +2 s no tempo · Alterar pista = desclassificação'],dica:'Calibre os sensores e otimize o controle PID para as curvas!'},
   {id:'cguerra',icon:'💪',name:'Cabo de Guerbô',sub:'Força · Tração',desc:'Dois robôs disputam cabo de guerra em plataforma de 2,5m. Vence quem arrastar o adversário pela zona morta central (50cm).',rules:['Controle 100% autônomo','Dimensões máx: 45×45×30 cm · Máx 2 kits/robô','Ponto de engate frontal fixo a 5cm do solo','Cabo inextensível de 60cm (obrigatório)','Melhor de 3 rounds de 1 minuto','Cola, fita ou adesivos = desclassificação'],dica:'Rodas com alta aderência e centro de massa baixo são decisivos!'},
   {id:'inovacao',icon:'💡',name:'Projeto de Inovação',sub:'EcoSentry · Cerrado',desc:'Tema: EcoSentry — Sentinelas do Cerrado. As equipes identificam problema real e criam solução tecnológica. Apresentação para banca avaliadora.',rules:['Apresentação: 5 min + 3 min perguntas','Obrigatório: protótipo ou demonstração','Diário de bordo obrigatório','5 critérios de 20pts cada = 100pts total','Problema identificado · Inovação · Viabilidade técnica · Apresentação oral · Diário de bordo','Consulte o Caderno EcoSentry'],dica:'Problemas reais da sua comunidade têm muito mais impacto!'},
-  {id:'corevalues',icon:'🏅',name:'Core Values',sub:'6 Valores Fundamentais',desc:'Avaliação dos valores: Descoberta, Inovação, Impacto, Inclusão, Trabalho em Equipe e Diversão. Observado durante todo o evento.',rules:['Apresentação específica: até 4 minutos','Avaliado durante TODA a competição','4 critérios de 25pts cada = 100pts total','Trabalho em equipe · Valores · Diário · Apresentação','Todos os membros devem participar'],dica:'Como a equipe reage às dificuldades importa mais que o resultado!'}
+  {id:'corevalues',icon:'🏅',name:'Core Values',sub:'6 Valores Fundamentais',desc:'Avaliação dos valores: Descoberta, Inovação, Impacto, Inclusão, Trabalho em Equipe e Diversão. Observado durante todo o evento.',rules:['Avaliado durante a apresentação do Projeto de Inovação','Avaliado durante TODA a competição','4 critérios de 25pts cada = 100pts total','Trabalho em equipe · Valores · Diário · Apresentação','Todos os membros devem participar'],dica:'Como a equipe reage às dificuldades importa mais que o resultado!'}
 ];
 
 var FAQ_DATA=[
@@ -2434,7 +2430,7 @@ var FAQ_DATA=[
   {q:'Uma escola pode inscrever mais de uma equipe?',a:'Sim! Cada escola pode inscrever até 2 equipes (podendo ser 3 mediante autorização da organização), com no mínimo 4 e no máximo 8 alunos mais 1 professor/mentor por equipe.'},
   {q:'É obrigatório ter professor mentor?',a:'Sim. Cada equipe precisa de 1 professor/mentor responsável, que deve assinar o Termo de Participação e acompanhar a equipe no dia do evento.'},
   {q:'Quais kits e robôs são permitidos?',a:'Kits SEDUC-GO (LEGO WeDo, Spike Prime, Mindstorms), LEGO Education, Arduino, Raspberry Pi e componentes comerciais seguros são permitidos. São obrigatórios: inspeção técnica, autorização dos responsáveis e segurança elétrica/estrutural. São PROIBIDOS: materiais inflamáveis, explosivos, armas, projéteis, líquidos inflamáveis, componentes perigosos e motores sem isolamento adequado.'},
-  {q:'O robô pode ser controlado remotamente?',a:'Não. Nas modalidades de combate e percurso (Sumô, Seguidor de Linha e Cabo de Guerbô) o robô deve ser 100% autônomo. Controle manual só é permitido em demonstrações do Projeto de Inovação e Core Values.'},
+  {q:'O robô pode ser controlado remotamente?',a:'Não. Nas modalidades de combate e percurso (Sumô, Seguidor de Linha e Cabo de Guerbô) o robô deve ser 100% autônomo. Controle manual só é permitido na apresentação do Projeto de Inovação.'},
   {q:'Uma equipe pode participar de mais de uma modalidade?',a:'Sim! Uma equipe pode se inscrever em quantas modalidades quiser.'},
   {q:'Qual é o tema do Projeto de Inovação?',a:'O tema é "EcoSentry: Sentinelas do Cerrado". As equipes criam soluções tecnológicas para monitorar, prevenir ou recuperar áreas do Cerrado. Baixe o Caderno EcoSentry na aba Downloads.'},
   {q:'O que é o Diário de Bordo?',a:'O Diário de Bordo documenta todo o processo de criação da equipe: dados da equipe, reuniões, descrição técnica, testes, fotos/desenhos, reflexões e pesquisa do projeto. É obrigatório e concorre ao prêmio Melhor Documentação. Entrega digital (PDF via site): 15/08/2026 · Entrega física (impresso): 19/08/2026 no evento. Atraso sem justificativa = -20 pontos.'},
@@ -2968,7 +2964,7 @@ var ARC_FAQ=[
   {k:['ecosentry','eco','inovação','inovacao','projeto','cerrado','trilha','hardware','software','ambiental'],
    r:'🌿 Projeto de Inovação — EcoSentry: Sentinelas do Cerrado\n• Apresentação: 5 min + 3 min de perguntas da banca\n• Etapas: Identificar problema → Pesquisar → Protótipo → Diário → Apresentar\n• Diário de Bordo: digital 15/08 + físico 19/08\n• Critérios (20 pts cada = 100 total):\n  Problema identificado · Inovação · Viabilidade técnica · Apresentação oral · Diário de bordo'},
   {k:['core','valores','diversão','diversao','inclusão','inclusao','inovação','inovacao','descoberta','impacto','equipe'],
-   r:'⭐ Core Values:\n• 6 valores: Descoberta, Inovação, Impacto, Inclusão, Trabalho em Equipe, Diversão\n• Avaliação contínua durante TODO o evento\n• Apresentação de até 4 min\n• 4 critérios × 25 pts = 100 pts'},
+   r:'⭐ Core Values:\n• 6 valores: Descoberta, Inovação, Impacto, Inclusão, Trabalho em Equipe, Diversão\n• Avaliação contínua durante TODO o evento\n• Avaliado durante a apresentação do Projeto de Inovação\n• 4 critérios × 25 pts = 100 pts'},
   {k:['inscrição','inscricao','inscrever','prazo','quando','data','abr','mai'],
    r:'📅 Inscrições:\n• Abertura: 18 de Maio de 2026\n• Encerramento: 18 de Junho de 2026\n• Acesse: aruanaroboticschalleng.github.io/ARCgo\n• Apenas professores cadastrados podem inscrever equipes'},
   {k:['equipe','aluno','membro','quantos','escola','limite'],
@@ -2990,7 +2986,7 @@ var ARC_FAQ=[
   {k:['publicação','publicacao','abril','divulg','calendario','calendário'],
    r:'📢 Linha do tempo oficial:\n• 01/05/2026 — publicação do edital\n• 18/05 a 18/06/2026 — inscrições online\n• 19 a 30/06/2026 — inspeção técnica e validação\n• 15/08/2026 — entrega digital do Diário de Bordo e Projeto\n• 19/08/2026 — entrega física + torneio + premiação\n• Mudanças com mínimo 7 dias úteis de antecedência.'},
   {k:['autonom','remoto','controle','radio'],
-   r:'🎮 Autonomia:\n• Sumô, Seguidor de Linha e Cabo de Guerbô = 100% autônomo (sem controle remoto)\n• Demonstrações de Projeto de Inovação / Core Values podem usar apoio manual só na apresentação, conforme edital.'},
+   r:'🎮 Autonomia:\n• Sumô, Seguidor de Linha e Cabo de Guerbô = 100% autônomo (sem controle remoto)\n• Apresentação do Projeto de Inovação pode usar apoio manual, conforme edital.'},
   {k:['pontuação','pontuacao','criterio','critério','nota','avalia'],
    r:'📊 Pontuações rápidas:\n• EcoSentry/Inovação (5 × 20 = 100):\n  Problema · Inovação · Viabilidade · Apresentação · Diário\n• Core Values (4 × 25 = 100):\n  Trabalho em equipe · Valores · Diário · Comunicação\n• Sumô: 2 Yukôs vencem · Não andar 10 s = derrota\n• Recurso: até 30 min após resultado · Comissão responde em 1h'},
 ];
