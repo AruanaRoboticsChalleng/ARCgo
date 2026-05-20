@@ -2374,7 +2374,8 @@ body::after{
         <div><h2 style="font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700">📊 Painel ARC 2026</h2><p style="color:rgba(255,255,255,.35);font-size:12px;margin-top:2px">CEPI Dom Cândido do Penso · Aruanã, Goiás</p></div>
         <div class="dash-acts">
           <button class="btn-act btn-export" onclick="exportCSV()">⬇ CSV</button>
-          <button class="btn-act btn-export" onclick="exportRelatorioWord()" title="Abre no Word / LibreOffice">📄 Relatório</button>
+          <button class="btn-act btn-export" onclick="exportRelatorioPDF()" title="Abre em nova guia para salvar como PDF">📄 Relatório (PDF)</button>
+          <button class="btn-act btn-refresh" onclick="exportRelatorioWord()" title="Baixa relatório formatado para o Word">📝 Relatório (Word)</button>
           <button class="btn-act btn-print" onclick="adminPrintCarteirinhas()">🪪 Carteirinhas</button>
           <button class="btn-act btn-print" onclick="window.print()">🖨 Painel</button>
           <button class="btn-act btn-refresh" onclick="loadData()">↻ Atualizar</button>
@@ -3112,89 +3113,130 @@ function adminPrintCarteirinhas(){
   var html='<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><title>Crachás ARC</title><style>'+arcBadgeCss()+'</style></head><body><p class="np">Ctrl+P — crachá tamanho aprox. cartão (86×54 mm) · fundo cinza só na tela</p>'+h.join('')+'<script>setTimeout(function(){window.print();},300);<\/script></body></html>';
   var w=window.open('','_blank');if(!w){toast('Permita pop-up','er');return;}w.document.open();w.document.write(html);w.document.close();toast('Janela pronta para imprimir','ok');
 }
+function exportRelatorioPDF(){
+  if(!DB.length){toast('Nenhuma inscrição','er');return;}
+  var html='<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><title>Relatório ARC 2026</title>'+
+  '<style>@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@700&display=swap");'+
+  '@page{size:A4 landscape;margin:10mm}body{font-family:"Inter",sans-serif;background:#f8fafc;color:#0f172a;margin:0;padding:20px;line-height:1.4}'+
+  '.container{max-width:1400px;margin:0 auto;background:#fff;padding:40px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,.05)}'+
+  '@media print{body{background:#fff;padding:0}.container{box-shadow:none;padding:0;max-width:100%}}'+
+  '.header{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid #f97316;padding-bottom:15px;margin-bottom:25px}'+
+  '.title{font-family:"Rajdhani",sans-serif;font-size:32px;color:#0f172a;margin:0}'+
+  '.meta{font-size:13px;color:#64748b}'+
+  '.stats{display:flex;gap:15px;margin-bottom:25px;background:#f1f5f9;padding:15px;border-radius:8px}'+
+  '.st-box{flex:1;text-align:center;border-right:1px solid #cbd5e1}.st-box:last-child{border:none}'+
+  '.st-val{font-size:24px;font-weight:700;color:#f97316}.st-lbl{font-size:11px;text-transform:uppercase;color:#475569;font-weight:600}'+
+  '.t-card{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin-bottom:20px;page-break-inside:avoid}'+
+  '.tc-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #f1f5f9;padding-bottom:12px;margin-bottom:12px}'+
+  '.tc-name{font-size:18px;font-weight:700;color:#1e3a8a}'+
+  '.tc-code{font-family:monospace;background:#f1f5f9;padding:4px 8px;border-radius:4px;font-size:13px;color:#475569}'+
+  '.badge{padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase}'+
+  '.b-Conf{background:#dcfce7;color:#166534}.b-Em{background:#fef9c3;color:#854d0e}.b-Rec{background:#fee2e2;color:#991b1b}'+
+  '.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-bottom:12px}'+
+  '.dl{font-size:10px;font-weight:600;color:#94a3b8;text-transform:uppercase;margin-bottom:2px}'+
+  '.dv{font-size:13px;color:#334155;font-weight:600}'+
+  '.obs{background:#fffbeb;border-left:3px solid #f59e0b;padding:10px 15px;border-radius:0 6px 6px 0;margin-top:15px;font-size:13px;color:#78350f}'+
+  '.al-list{margin-top:12px;background:#f8fafc;padding:10px;border-radius:6px;font-size:12px;color:#475569}'+
+  '.al-item{display:inline-block;background:#e2e8f0;padding:3px 8px;border-radius:12px;margin:2px 4px 2px 0;font-weight:500}'+
+  '.btn-print{display:block;margin:0 auto 30px;background:#f97316;color:#fff;border:none;padding:12px 24px;font-size:16px;border-radius:8px;cursor:pointer;font-weight:600}'+
+  '@media print{.btn-print{display:none}}'+
+  '</style></head><body><div class="container">';
+  var conf=DB.filter(function(i){return i.status==="Confirmada"}).length;
+  var rev=DB.filter(function(i){return i.status==="Em Revisão"}).length;
+  var rec=DB.filter(function(i){return i.status==="Recusada"}).length;
+  var alT=DB.reduce(function(s,i){return s+(i.alunos||[]).length},0);
+  html+='<button class="btn-print" onclick="window.print()">🖨 Imprimir / Salvar PDF</button>'+
+  '<div class="header"><div><h1 class="title">Relatório Geral de Inscrições</h1><div class="meta">ARC 2026 · Gerado em '+new Date().toLocaleString('pt-BR')+'</div></div>'+
+  '<div style="text-align:right"><div style="font-weight:700;color:#0f172a">CEPI Dom Cândido do Penso</div><div class="meta">Aruanã, Goiás</div></div></div>'+
+  '<div class="stats"><div class="st-box"><div class="st-val">'+DB.length+'</div><div class="st-lbl">Equipes</div></div>'+
+  '<div class="st-box"><div class="st-val">'+alT+'</div><div class="st-lbl">Alunos</div></div>'+
+  '<div class="st-box"><div class="st-val" style="color:#166534">'+conf+'</div><div class="st-lbl">Confirmadas</div></div>'+
+  '<div class="st-box"><div class="st-val" style="color:#854d0e">'+rev+'</div><div class="st-lbl">Em Revisão</div></div>'+
+  '<div class="st-box"><div class="st-val" style="color:#991b1b">'+rec+'</div><div class="st-lbl">Recusadas</div></div></div>';
+  DB.forEach(function(i){
+    var stClass=i.status==="Confirmada"?"b-Conf":i.status==="Recusada"?"b-Rec":"b-Em";
+    var mods=(i.equipe&&i.equipe.modalidades||[]).join(' · ')||'—';
+    var prof=i.professor||{};var eq=i.equipe||{};var pj=i.projeto||{};
+    var alHtml=(i.alunos||[]).map(function(a){return'<span class="al-item">'+arcCell(a.nome)+' ('+arcCell(a.serie)+')</span>'}).join('');
+    html+='<div class="t-card"><div class="tc-head"><div style="display:flex;align-items:center;gap:15px"><div class="tc-name">'+arcCell(eq.nome||'—')+'</div>'+
+    '<div class="badge '+stClass+'">'+arcCell(i.status||'Em Revisão')+'</div></div><div class="tc-code">'+arcCell(i.codigo)+'</div></div>'+
+    '<div class="grid3">'+
+    '<div><div class="dl">Escola & Município</div><div class="dv">'+arcCell(i.escola)+' · '+arcCell(i.municipio)+'</div></div>'+
+    '<div><div class="dl">Professor / Mentor</div><div class="dv">'+arcCell(prof.nome||'—')+'</div></div>'+
+    '<div><div class="dl">Contato</div><div class="dv">'+arcCell(prof.email||'—')+'<br>'+arcCell(prof.tel||'—')+'</div></div>'+
+    '</div><div class="grid3">'+
+    '<div><div class="dl">Robô / Projeto</div><div class="dv">'+arcCell(pj.nome||'—')+'</div></div>'+
+    '<div><div class="dl">Kit de Robótica</div><div class="dv">'+arcCell(pj.kit||'—')+'</div></div>'+
+    '<div><div class="dl">Modalidades</div><div class="dv">'+arcCell(mods)+'</div></div>'+
+    '</div>'+
+    (pj.resumo?'<div style="margin-top:12px"><div class="dl">Resumo da Solução</div><div class="dv" style="font-weight:400;line-height:1.5">'+arcCell(pj.resumo)+'</div></div>':'')+
+    '<div class="al-list"><div class="dl" style="margin-bottom:6px">Alunos ('+(i.alunos||[]).length+')</div>'+(alHtml||'—')+'</div>'+
+    (i.observacoes?'<div class="obs"><strong>📢 Observações da Organização:</strong><br>'+arcCell(i.observacoes)+'</div>':'')+
+    '</div>';
+  });
+  html+='</div><script>setTimeout(function(){window.print();},600);<\/script></body></html>';
+  var w=window.open('','_blank');if(!w){toast('Permita pop-up para abrir relatório','er');return;}
+  w.document.open();w.document.write(html);w.document.close();
+}
+
 function exportRelatorioWord(){
   if(!DB.length){toast('Nenhuma inscrição','er');return;}
-  toast('Gerando .docx...','ok');
-  var _p=window.docx?Promise.resolve():new Promise(function(res,rej){var s=document.createElement('script');s.src='https://unpkg.com/docx@8.5.0/build/index.js';s.onload=res;s.onerror=function(){rej(new Error('Sem internet (biblioteca docx)'));};document.head.appendChild(s);});
-  _p.then(function(){
-    var _=window.docx;
-    var Doc=_.Document,Pkr=_.Packer,Par=_.Paragraph,Txt=_.TextRun,
-        Tbl=_.Table,TRow=_.TableRow,TCell=_.TableCell,
-        AT=_.AlignmentType,BS=_.BorderStyle,WT=_.WidthType,
-        ST=_.ShadingType,VA=_.VerticalAlign,PO=_.PageOrientation,Hdr=_.Header;
-    var BL='1E3A8A',OR='D96A0E',WH='FFFFFF',GR='F4F6FA',DK='1A2332',SB='6B7280';
-    var bd={style:BS.SINGLE,size:1,color:'D0D5E0'},bds={top:bd,bottom:bd,left:bd,right:bd};
-    function tx(t,o){o=o||{};return new Txt({text:String(t==null?'':t),bold:!!o.b,size:o.s||18,color:o.c||DK,font:'Calibri',italics:!!o.i});}
-    function pg(r,a){return new Par({alignment:a||AT.LEFT,spacing:{before:20,after:20},children:Array.isArray(r)?r:[r]});}
-    function se(s){return(s||'').replace(/[\uD800-\uDFFF]|[\u2600-\u27BF]/g,'').replace(/\s+/g,' ').trim();}
-    function modNames(a){var M={'Rob\u00f4 Sum\u00f4':'Sum\u00f4','Seguidor de Linha':'Seg.Linha','Cabo de Guerb\u00f4':'Cabo G.','Projeto de Inova\u00e7\u00e3o':'Inova\u00e7\u00e3o','Core Values':'Core V.'};return(a||[]).map(function(m){var c=se(m);for(var k in M){if(c.indexOf(k)>=0)return M[k];}return c;}).join(', ');}
-    function hc(t,w){return new TCell({borders:bds,width:{size:w,type:WT.DXA},shading:{fill:BL,type:ST.CLEAR},verticalAlign:VA.CENTER,margins:{top:80,bottom:80,left:100,right:100},children:[pg(tx(t,{b:true,c:WH}),AT.CENTER)]});}
-    function dc(t,w,sh,o){return new TCell({borders:bds,width:{size:w,type:WT.DXA},shading:{fill:sh,type:ST.CLEAR},verticalAlign:VA.CENTER,margins:{top:60,bottom:60,left:100,right:100},children:[pg(tx(t==null||t===''?'—':String(t),o||{}),(o&&o.ce)?AT.CENTER:AT.LEFT)]});}
-    function mc(ls,w,sh){return new TCell({borders:bds,width:{size:w,type:WT.DXA},shading:{fill:sh,type:ST.CLEAR},verticalAlign:VA.CENTER,margins:{top:60,bottom:60,left:100,right:100},children:ls.map(function(l){return pg(tx(l[0]||'',{s:l[1]||18,c:l[2]||DK,b:!!l[3]}));})});}
-    function hr(cols,ws){return new TRow({tableHeader:true,children:cols.map(function(c,i){return hc(c,ws[i]);})});}
-    // TABLE 1 — A4 landscape, margens 720 → conteúdo 15398 DXA
-    var W1=[400,1200,1000,1300,2200,1200,1900,1600,2500,500,1598];
-    var rows1=[hr(['#','C\u00f3digo','Status','Data','Escola','Munic\u00edpio','Professor / E-mail','Equipe / Cidade','Modalidades','N\u00ba','Rob\u00f4 / Kit'],W1)];
-    DB.forEach(function(i,ix){
-      var sh=ix%2?WH:GR;
-      rows1.push(new TRow({children:[
-        dc(ix+1,W1[0],sh,{ce:true}),
-        dc(i.codigo,W1[1],sh,{b:true,c:'1E4BB5'}),
-        dc(i.status,W1[2],sh),
-        dc((i.data_hora||'').replace(/,.*$/,''),W1[3],sh,{s:17}),
-        dc(i.escola,W1[4],sh),
-        dc(i.municipio,W1[5],sh),
-        mc([[i.professor&&i.professor.nome||'\u2014',18,DK,true],[i.professor&&i.professor.email||'',16,SB]],W1[6],sh),
-        mc([[i.equipe&&i.equipe.nome||'\u2014',18,DK,true],[i.equipe&&i.equipe.cidade||'',16,SB]],W1[7],sh),
-        dc(modNames(i.equipe&&i.equipe.modalidades),W1[8],sh,{s:17}),
-        dc((i.alunos||[]).length,W1[9],sh,{ce:true,b:true}),
-        mc([[se(i.projeto&&i.projeto.nome)||'\u2014',18,DK,true],[se(i.projeto&&i.projeto.kit)||'',16,SB]],W1[10],sh),
-      ]}));
-    });
-    // TABLE 2 — A4 retrato, margens 720 → conteúdo 10466 DXA
-    var W2=[400,1100,1400,2200,3066,2300];
-    var rows2=[hr(['#','C\u00f3digo','Equipe','Alunos','Resumo do Projeto','Observa\u00e7\u00f5es'],W2)];
-    DB.forEach(function(i,ix){
-      var sh=ix%2?WH:GR;
-      var ac=(i.alunos||[]).map(function(a,n){return pg(tx((n+1)+'. '+se(a.nome||'\u2014')+(a.serie?' ('+a.serie+')':''),{s:17}));});
-      rows2.push(new TRow({children:[
-        dc(ix+1,W2[0],sh,{ce:true}),
-        dc(i.codigo,W2[1],sh,{b:true,c:'1E4BB5'}),
-        dc(i.equipe&&i.equipe.nome,W2[2],sh,{b:true}),
-        new TCell({borders:bds,width:{size:W2[3],type:WT.DXA},shading:{fill:sh,type:ST.CLEAR},verticalAlign:VA.TOP,margins:{top:60,bottom:60,left:100,right:100},children:ac.length?ac:[pg(tx('\u2014'))]}),
-        dc(i.projeto&&i.projeto.resumo,W2[4],sh,{s:17}),
-        dc(i.observacoes,W2[5],sh,{s:17}),
-      ]}));
-    });
-    var tot=DB.length,alu=DB.reduce(function(s,i){return s+(i.alunos||[]).length;},0),now=new Date().toLocaleString('pt-BR');
-    var doc=new Doc({
-      styles:{default:{document:{run:{font:'Calibri',size:18,color:DK}}}},
-      sections:[
-        {
-          properties:{page:{size:{width:11906,height:16838,orientation:PO.LANDSCAPE},margin:{top:720,right:720,bottom:720,left:720}}},
-          headers:{default:new Hdr({children:[new Par({alignment:AT.RIGHT,children:[tx('ARC 2026  \u00b7  Relat\u00f3rio Administrativo',{s:17,c:SB,i:true})]})]})},
-          children:[
-            new Par({spacing:{before:0,after:60},children:[tx('ARC 2026',{b:true,s:52,c:OR}),tx('  \u00b7  RELAT\u00d3RIO ADMINISTRATIVO',{b:true,s:40,c:BL})]}),
-            new Par({spacing:{before:0,after:240},children:[tx('Aruana Robotics Challenge  \u2014  '+now+'   |   '+tot+' equipe(s)  \u00b7  '+alu+' aluno(s)',{s:19,c:SB})]}),
-            new Par({spacing:{before:0,after:140},children:[tx('1.  VIS\u00c3O GERAL DAS INSCRI\u00c7\u00d5ES',{b:true,s:24,c:BL})]}),
-            new Tbl({width:{size:15398,type:WT.DXA},columnWidths:W1,rows:rows1}),
-            new Par({spacing:{before:80,after:0},children:[tx('Total: '+tot+' equipe(s)  \u00b7  '+alu+' aluno(s)',{s:16,c:SB,i:true})]}),
-          ]
-        },
-        {
-          properties:{page:{size:{width:11906,height:16838},margin:{top:720,right:720,bottom:720,left:720}}},
-          children:[
-            new Par({spacing:{before:0,after:140},children:[tx('2.  PROJETOS E OBSERVA\u00c7\u00d5ES',{b:true,s:24,c:BL})]}),
-            new Tbl({width:{size:10466,type:WT.DXA},columnWidths:W2,rows:rows2}),
-            new Par({spacing:{before:200,after:0},children:[tx('ARC 2026  \u00b7  CEPI Dom C\u00e2ndido do Penso  \u00b7  Aruan\u00e3\u2013GO  \u00b7  joannes.medrado@educa.go.gov.br',{s:16,c:SB,i:true})]}),
-          ]
-        }
-      ]
-    });
-    Pkr.toBlob(doc).then(function(blob){
-      var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='ARC2026_Relatorio_'+new Date().toISOString().slice(0,10)+'.docx';a.click();setTimeout(function(){URL.revokeObjectURL(a.href);},8000);toast('Relat\u00f3rio .docx gerado!','ok');
-    }).catch(function(e){toast('Erro ao gerar: '+e.message,'er');});
-  }).catch(function(e){toast('Erro: '+e.message,'er');});
+  var conf=DB.filter(function(i){return i.status==="Confirmada"}).length;
+  var rev=DB.filter(function(i){return i.status==="Em Revisão"}).length;
+  var rec=DB.filter(function(i){return i.status==="Recusada"}).length;
+  var alT=DB.reduce(function(s,i){return s+(i.alunos||[]).length},0);
+
+  var head='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>Relatório ARC 2026</title>'+
+  '<style>'+
+  'body{font-family:Arial,sans-serif;font-size:11pt;color:#333}'+
+  'h1{color:#d96a0e;font-size:20pt;border-bottom:2px solid #d96a0e;padding-bottom:5px;margin-bottom:5px}'+
+  'h2{color:#1e3a8a;font-size:14pt;margin-top:20px;margin-bottom:10px}'+
+  'table.stats{width:100%;border-collapse:collapse;margin-bottom:20px;background:#f1f5f9;border:1px solid #cbd5e1}'+
+  'table.stats td{padding:10px;text-align:center;border-right:1px solid #cbd5e1}'+
+  'table.stats td:last-child{border-right:none}'+
+  '.card{width:100%;border-collapse:collapse;margin-bottom:20px;border:1px solid #ccc;page-break-inside:avoid}'+
+  '.c-head{background:#f1f5f9;font-weight:bold;font-size:13pt;color:#1e3a8a;padding:8px}'+
+  '.c-sub{background:#f8fafc;font-size:10pt;color:#555;padding:4px 8px;border-bottom:1px solid #ccc}'+
+  '.c-body td{padding:6px 8px;border-bottom:1px dotted #eee;vertical-align:top}'+
+  '.lbl{font-size:9pt;color:#777;font-weight:bold;text-transform:uppercase}'+
+  '.val{font-size:11pt;color:#222;font-weight:normal}'+
+  '</style></head><body>'+
+  '<h1>ARC 2026 — Relatório Oficial</h1><p style="font-size:10pt;color:#777">Gerado em: '+new Date().toLocaleString('pt-BR')+'</p>'+
+  '<table class="stats"><tr>'+
+  '<td><b>Equipes</b><br><span style="font-size:16pt;color:#d96a0e">'+DB.length+'</span></td>'+
+  '<td><b>Alunos</b><br><span style="font-size:16pt;color:#333">'+alT+'</span></td>'+
+  '<td><b>Confirmadas</b><br><span style="font-size:16pt;color:#166534">'+conf+'</span></td>'+
+  '<td><b>Em Revisão</b><br><span style="font-size:16pt;color:#854d0e">'+rev+'</span></td>'+
+  '<td><b>Recusadas</b><br><span style="font-size:16pt;color:#991b1b">'+rec+'</span></td>'+
+  '</tr></table><h2>Detalhes das Inscrições</h2>';
+  
+  var cards='';
+  DB.forEach(function(i){
+    var mods=(i.equipe&&i.equipe.modalidades||[]).join(' · ')||'—';
+    var prof=i.professor||{};var eq=i.equipe||{};var pj=i.projeto||{};
+    var alHtml=(i.alunos||[]).map(function(a){return arcCell(a.nome)+' ('+arcCell(a.serie)+')';}).join('<br>');
+    var stColor=i.status==="Confirmada"?"#166534":i.status==="Recusada"?"#991b1b":"#854d0e";
+    
+    cards+='<table class="card">'+
+    '<tr><td class="c-head" width="70%">'+arcCell(eq.nome||'—')+'</td><td class="c-head" width="30%" align="right" style="color:'+stColor+'">'+arcCell(i.status||'Em Revisão')+'</td></tr>'+
+    '<tr><td colspan="2" class="c-sub">Código: <b>'+arcCell(i.codigo)+'</b> &nbsp;|&nbsp; Inscrito em: '+arcCell(i.data_hora)+'</td></tr>'+
+    '<tr class="c-body"><td width="50%"><div class="lbl">Escola & Município</div><div class="val">'+arcCell(i.escola)+'<br>'+arcCell(i.municipio)+'</div></td>'+
+    '<td width="50%"><div class="lbl">Professor / Contato</div><div class="val">'+arcCell(prof.nome||'—')+'<br>'+arcCell(prof.tel||'—')+' ('+arcCell(prof.email||'—')+')</div></td></tr>'+
+    '<tr class="c-body"><td><div class="lbl">Robô / Projeto</div><div class="val">'+arcCell(pj.nome||'—')+'<br><span style="font-size:9pt">Kit: '+arcCell(pj.kit||'—')+'</span></div></td>'+
+    '<td><div class="lbl">Modalidades</div><div class="val">'+arcCell(mods)+'</div></td></tr>'+
+    (pj.resumo?'<tr class="c-body"><td colspan="2"><div class="lbl">Resumo da Solução</div><div class="val" style="font-size:10pt">'+arcCell(pj.resumo)+'</div></td></tr>':'')+
+    '<tr class="c-body"><td colspan="2"><div class="lbl">Alunos ('+(i.alunos||[]).length+')</div><div class="val" style="font-size:10pt">'+(alHtml||'—')+'</div></td></tr>'+
+    (i.observacoes?'<tr class="c-body"><td colspan="2"><div class="lbl" style="color:#d96a0e">Observações da Organização</div><div class="val" style="font-size:10pt;background:#fffbeb;padding:5px">'+arcCell(i.observacoes)+'</div></td></tr>':'')+
+    '</table><br>';
+  });
+
+  var fullHtml = head + cards + '</body></html>';
+  var blob=new Blob(['\ufeff'+fullHtml],{type:'application/msword'});
+  var a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download='ARC2026_Relatorio_'+new Date().toISOString().slice(0,10)+'.doc';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  setTimeout(function(){URL.revokeObjectURL(a.href);},8000);
+  toast('Relatório Word gerado!','ok');
 }
 
 function doLogin(){var u=document.getElementById('lu').value.trim(),p=document.getElementById('lp').value;if(u===AU&&p===AP){IS_AUTH=true;document.getElementById('loginWrap').style.display='none';document.getElementById('dash').classList.add('show');loadData();}else{var e=document.getElementById('lerr');e.classList.add('show');setTimeout(function(){e.classList.remove('show');},3500);toast('Credenciais incorretas','er');}}
@@ -3219,7 +3261,7 @@ function di(l,v){return'<div class="di"><div class="dl">'+l+'</div><div class="d
 async function saveNote(id){var note=document.getElementById('noteArea').value;showLoad();var r=await SB.from('inscricoes').update({observacoes:note}).eq('id',id);hideLoad();if(r.error){toast('Erro: '+r.error.message,'er');return;}toast('Salvo!','ok');var rec=DB.find(function(x){return x.id===id;});if(rec)rec.observacoes=note;}
 async function setStatus(id,status){showLoad();var r=await SB.from('inscricoes').update({status:status}).eq('id',id);hideLoad();if(r.error){toast('Erro','er');return;}toast('Status: '+status,'ok');var rec=DB.find(function(x){return x.id===id;});if(rec)rec.status=status;renderTable();closeDetail();setTimeout(function(){showDetail(id);},200);}
 function closeDetail(){document.getElementById('overlay').classList.remove('open');}
-function exportCSV(){if(!DB.length){toast('Nenhuma inscrição','er');return;}var h=['Código','Data','Status','Escola','Município','Tipo','Professor','E-mail Prof','WhatsApp','CPF','Disciplina','Equipe','Cidade','Modalidades','Qtd Alunos','Robô','Kit','Área','Resumo','Fotos','Docs','A1','S1','A2','S2','A3','S3','A4','S4','A5','S5','A6','S6','A7','S7','A8','S8','Observações'];var rows=DB.map(function(i){var ac=[];for(var k=0;k<8;k++){var a=(i.alunos||[])[k];ac.push(a&&a.nome||'',a&&a.serie||'');}return[i.codigo,i.data_hora,i.status,i.escola,i.municipio,i.tipo,i.professor&&i.professor.nome,i.professor&&i.professor.email,i.professor&&i.professor.tel,i.professor&&i.professor.cpf,i.professor&&i.professor.disc,i.equipe&&i.equipe.nome,i.equipe&&i.equipe.cidade,(i.equipe&&i.equipe.modalidades||[]).join('; '),(i.alunos||[]).length,i.projeto&&i.projeto.nome,i.projeto&&i.projeto.kit,i.projeto&&i.projeto.area,i.projeto&&i.projeto.resumo,((i.arquivos&&i.arquivos.fotos)||[]).length,((i.arquivos&&i.arquivos.docs)||[]).length].concat(ac).concat([i.observacoes||'']).map(function(v){return'"'+String(v===null||v===undefined?'':v).replace(/"/g,'""')+'"';});});var csv='\uFEFF'+[h.join(',')].concat(rows.map(function(r){return r.join(',');})).join('\n');var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='ARC2026_'+new Date().toISOString().slice(0,10)+'.csv';a.click();toast('CSV exportado!','ok');}
+function exportCSV(){if(!DB.length){toast('Nenhuma inscrição','er');return;}var h=['Código','Data','Status','Escola','Município','Tipo','Professor','E-mail Prof','WhatsApp','CPF','Disciplina','Equipe','Cidade','Modalidades','Qtd Alunos','Robô','Kit','Área','Resumo','Fotos','Docs','A1','S1','A2','S2','A3','S3','A4','S4','A5','S5','A6','S6','A7','S7','A8','S8','Observações'];var rows=DB.map(function(i){var ac=[];for(var k=0;k<8;k++){var a=(i.alunos||[])[k];ac.push(a&&a.nome||'',a&&a.serie||'');}return[i.codigo,i.data_hora,i.status,i.escola,i.municipio,i.tipo,i.professor&&i.professor.nome,i.professor&&i.professor.email,i.professor&&i.professor.tel,i.professor&&i.professor.cpf,i.professor&&i.professor.disc,i.equipe&&i.equipe.nome,i.equipe&&i.equipe.cidade,(i.equipe&&i.equipe.modalidades||[]).join('; '),(i.alunos||[]).length,i.projeto&&i.projeto.nome,i.projeto&&i.projeto.kit,i.projeto&&i.projeto.area,i.projeto&&i.projeto.resumo,((i.arquivos&&i.arquivos.fotos)||[]).length,((i.arquivos&&i.arquivos.docs)||[]).length].concat(ac).concat([i.observacoes||'']).map(function(v){return'"'+String(v===null||v===undefined?'':v).replace(/"/g,'""')+'"';});});var csv='\uFEFF'+[h.join(',')].concat(rows.map(function(r){return r.join(',');})).join('\n');var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='ARC2026_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);toast('CSV exportado!','ok');}
 window.addEventListener('keydown', function(e){
   if(e.key==='Escape'){
     closeDetail();
