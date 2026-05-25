@@ -1788,15 +1788,230 @@ body::after{
   background-size:200px 200px;
 }
 
+
+/* ── LIGHT THEME STYLES ──────────────────────────────────── */
+body.light-theme {
+  background: #f8fafc;
+  color: #0f172a;
+}
+body.light-theme::after {
+  opacity: 0.006;
+  mix-blend-mode: multiply;
+}
+.light-theme .sec-title,
+.light-theme .sec-title span,
+.light-theme .info-box h4,
+.light-theme .theme-banner h2,
+.light-theme .theme-banner h3,
+.light-theme .team-member .tm-name,
+.light-theme .faq-q {
+  color: #0f172a !important;
+}
+.light-theme p,
+.light-theme li,
+.light-theme .hero-sub,
+.light-theme .faq-a {
+  color: #475569 !important;
+}
+.light-theme .info-box,
+.light-theme .team-member,
+.light-theme .step-card,
+.light-theme .gate-feature,
+.light-theme .theme-banner,
+.light-theme .faq-item {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+  color: #1e293b !important;
+}
+.light-theme nav {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  backdrop-filter: blur(12px) !important;
+}
+.light-theme .nav-brand-text {
+  color: #0f172a !important;
+}
+.light-theme .nav-brand-text small {
+  color: #475569 !important;
+}
+.light-theme .nav-tab {
+  color: #475569 !important;
+}
+.light-theme .nav-tab.active {
+  color: #2563eb !important;
+  background: rgba(37, 99, 235, 0.08) !important;
+}
+.light-theme .nav-right button {
+  color: #475569 !important;
+  border-color: rgba(0,0,0,0.1) !important;
+  background: rgba(0,0,0,0.02) !important;
+}
+.light-theme .fi,
+.light-theme input,
+.light-theme select,
+.light-theme textarea {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+.light-theme .fi:focus,
+.light-theme input:focus,
+.light-theme select:focus,
+.light-theme textarea:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+.light-theme .flabel {
+  color: #475569 !important;
+}
+.light-theme .admin-wrap,
+.light-theme .login-wrap,
+.light-theme .dash,
+.light-theme .dash-sidebar,
+.light-theme .dash-content {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+.light-theme table {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+.light-theme th {
+  background: #f8fafc !important;
+  color: #475569 !important;
+  border-bottom: 2px solid #e2e8f0 !important;
+}
+.light-theme td {
+  color: #334155 !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+}
+.light-theme tr:hover {
+  background: #f8fafc !important;
+}
+.light-theme .mini-msg.bot {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+.light-theme .mini-msg.user {
+  background: #3b82f6 !important;
+  color: #ffffff !important;
+}
+.light-theme .smart-btn {
+  background: #ffffff !important;
+  color: #2563eb !important;
+  border-color: #e2e8f0 !important;
+}
+.light-theme .smart-btn:hover {
+  background: #f8fafc !important;
+}
+.light-theme .bot-wrap {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+.light-theme dialog {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #e2e8f0 !important;
+}
+.light-theme .contact-item .ci-icon {
+  background: rgba(0, 0, 0, 0.04) !important;
+}
+.light-theme .contact-item .ci-value,
+.light-theme .contact-item .ci-label {
+  color: #334155 !important;
+}
+.light-theme .countdown .cd-num {
+  color: #0f172a !important;
+}
+.light-theme .countdown .cd-lbl {
+  color: #64748b !important;
+}
+.light-theme .stats-bar {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+.light-theme .stat-item .stat-n {
+  color: #0f172a !important;
+}
+.light-theme .stat-item .stat-l {
+  color: #64748b !important;
+}
+
+/* Toggle button styling */
+.theme-toggle {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  margin-right: 10px;
+}
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
+.light-theme .theme-toggle {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #0f172a;
+}
+.light-theme .theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+
+/* Dialog / Modals native style overrides */
+dialog {
+  border: none;
+  background: transparent;
+  padding: 0;
+  outline: none;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: visible;
+}
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.86);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+#lightbox::backdrop {
+  background: rgba(0, 0, 0, 0.93);
+}
+.light-theme dialog::backdrop {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.btn-spinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
 </style>
 </head>
 <body>
 <div class="bg-anim" id="bgAnim"></div>
 <div class="loading-screen" id="gLoad"><div class="spinner"></div><p style="color:rgba(255,255,255,.4);font-size:13px">Carregando...</p></div>
 <div class="toast" id="toast"></div>
-<div class="lightbox" id="lightbox" onclick="closeLightbox()"><button class="lightbox-close" onclick="closeLightbox()">✕</button><img id="lightboxImg" src="" alt="foto"></div>
-<div class="modal-bg" id="modModal" onclick="if(event.target===this)closeModModal()"><div class="modal-box"><button class="modal-close" onclick="closeModModal()">✕</button><div id="modModalContent"></div></div></div>
-<div class="overlay" id="overlay" onclick="if(event.target===this)closeDetail()"><div class="obox"><button class="oclose" onclick="closeDetail()">✕</button><div id="detailContent"></div></div></div>
+<dialog class="lightbox" id="lightbox" onclick="closeLightbox()"><button class="lightbox-close" onclick="closeLightbox()">✕</button><img id="lightboxImg" src="" alt="foto"></dialog>
+<dialog class="modal-bg" id="modModal" onclick="if(event.target===this)closeModModal()"><div class="modal-box"><button class="modal-close" onclick="closeModModal()">✕</button><div id="modModalContent"></div></div></dialog>
+<dialog class="overlay" id="overlay" onclick="if(event.target===this)closeDetail()"><div class="obox"><button class="oclose" onclick="closeDetail()">✕</button><div id="detailContent"></div></div></dialog>
 <a class="wa-float" href="mailto:pedro.kaio@aluno.educa.go.gov.br" target="_blank" title="Pedro Kaio · Email" aria-label="E-mail Pedro Kaio">✉️</a>
 
 <div class="z">
@@ -1816,6 +2031,7 @@ body::after{
     <a class="nav-tab" href="https://drive.google.com/drive/folders/1aI6s6WEMY5i7W22pPc3Etc2fMSLLSedH" target="_blank" title="Google Drive ARC 2026" style="text-decoration:none;color:rgba(255,255,255,.4)">📁 <span class="tab-icon">Drive</span></a>
   </div>
   <div class="nav-right">
+    <button class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Alternar Tema" title="Alternar Tema">☀️</button>
     <button class="nav-aluno-btn" id="navAlunoBtn" onclick="goTo('aluno')">🎒 <span class="tab-icon">Aluno</span></button>
     <button class="nav-prof-btn" id="navProfBtn" onclick="goTo('professor')">👩‍🏫 <span class="tab-icon">Professor</span></button>
     <button class="nav-admin" onclick="goTo('admin')">⚙ Admin</button>
@@ -1849,7 +2065,7 @@ body::after{
       <button class="btn btn-blue reveal" onclick="goTo('downloads')">📥 Documentos</button>
       <button class="btn btn-ghost reveal" onclick="goTo('status')">🔍 Verificar Código</button>
     </div>
-    <p style="font-size:11px;color:rgba(255,255,255,.25);margin-top:10px" class="reveal">Inscrições: 18/05 a 18/06/2026 &nbsp;·&nbsp; Evento: 19/08/2026 &nbsp;·&nbsp; ✉️ pedro.kaio@aluno.educa.go.gov.br</p>
+    <p style="font-size:11px;color:rgba(255,255,255,.25);margin-top:10px" class="reveal">Inscrições: 18/05 a 18/06/2026 &nbsp;·&nbsp; Evento: 19/08/2026 &nbsp;·&nbsp; ✉️ pedro.kaio@aluno.educa.go.gov.br / joannes.medrado@educa.go.gov.br</p>
   </div>
 
   <!-- THEME BANNER -->
@@ -1878,7 +2094,7 @@ body::after{
       <div class="info-box reveal"><h4>🏆 Premiação</h4><ul><li>🥇 Troféu + Medalha de Participação + Certificado</li><li>🥈 Troféu + Medalha de Participação + Certificado</li><li>🥉 Troféu + Medalha de Participação + Certificado</li><li>🏅 Troféu Especial: Melhor Documentação</li><li>🏅 Troféu Especial: Melhor Core Values</li><li>📜 Certificado para todos os participantes</li></ul></div>
       <div class="info-box reveal-r"><h4>✉️ Contato</h4>
         <div class="contact-item"><span class="ci-icon">🏫</span><div><div class="ci-label">Instituição</div><div class="ci-value">CEPI Dom Cândido do Penso · Aruanã, GO</div></div></div>
-        <div class="contact-item"><span class="ci-icon">📧</span><div><div class="ci-label">E-mail</div><div class="ci-value" style="font-size:12px"><a href="mailto:pedro.kaio@aluno.educa.go.gov.br">pedro.kaio@aluno.educa.go.gov.br</a></div></div></div>
+        <div class="contact-item"><span class="ci-icon">📧</span><div><div class="ci-label">E-mail</div><div class="ci-value" style="font-size:12px"><a href="mailto:pedro.kaio@aluno.educa.go.gov.br">pedro.kaio@aluno.educa.go.gov.br</a><br><a href="mailto:joannes.medrado@educa.go.gov.br" style="margin-top:4px;display:inline-block">joannes.medrado@educa.go.gov.br</a></div></div></div>
         <div class="contact-item"><span class="ci-icon">🗓</span><div><div class="ci-label">Dia do Evento</div><div class="ci-value">19 de Agosto de 2026</div></div></div>
       </div>
     </div>
@@ -1890,7 +2106,7 @@ body::after{
     <div class="team-box reveal">
       <div class="team-member">
         <div class="tm-avatar" style="background:rgba(217,106,14,.15)">🎓</div>
-        <div><div class="tm-name">Me. Joannes de Souza Medrado</div><div class="tm-role"><strong>Idealizador &amp; Professor Responsável</strong><br>Criador da Competição · CEPI Dom Cândido do Penso</div></div>
+        <div><div class="tm-name">Me. Joannes de Souza Medrado</div><div class="tm-role"><strong>Idealizador &amp; Professor Responsável</strong><br>Criador da Competição · CEPI Dom Cândido do Penso<br><small style="color:#4f8cff;font-size:10px">📧 joannes.medrado@educa.go.gov.br</small></div></div>
       </div>
       <div class="team-member">
         <div class="tm-avatar" style="background:rgba(79,140,255,.15)">🚀</div>
@@ -1965,7 +2181,7 @@ body::after{
         <button class="btn btn-blue" onclick="goTo('professor')" style="padding:11px 22px;font-size:14px">👩‍🏫 Entrar como Professor</button>
         <button class="btn btn-ghost" onclick="goTo('aluno')" style="padding:10px 16px;font-size:13px">🎒 Portal do Aluno</button>
       </div>
-      <p style="font-size:11px;color:rgba(255,255,255,.2);margin-top:16px">Dúvidas? <a href="mailto:pedro.kaio@aluno.educa.go.gov.br" target="_blank" style="color:#4f8cff">pedro.kaio@aluno.educa.go.gov.br</a></p>
+      <p style="font-size:11px;color:rgba(255,255,255,.2);margin-top:16px">Dúvidas? <a href="mailto:pedro.kaio@aluno.educa.go.gov.br" target="_blank" style="color:#4f8cff">pedro.kaio@aluno.educa.go.gov.br</a> ou <a href="mailto:joannes.medrado@educa.go.gov.br" target="_blank" style="color:#4f8cff">joannes.medrado@educa.go.gov.br</a></p>
     </div>
   </div>
   <div id="formReal" style="display:none">
@@ -2232,7 +2448,7 @@ body::after{
     </div>
     <div style="background:rgba(217,106,14,.07);border:1.5px solid rgba(217,106,14,.22);border-radius:13px;padding:18px;margin-top:24px;text-align:center" class="reveal">
       <p style="font-size:13px;color:rgba(255,255,255,.45)">⚠ Datas provisórias. Alterações comunicadas com mínimo de <strong>7 dias úteis</strong> de antecedência.</p>
-      <p style="font-size:12px;color:rgba(255,255,255,.3);margin-top:5px">📧 pedro.kaio@aluno.educa.go.gov.br</p>
+      <p style="font-size:12px;color:rgba(255,255,255,.3);margin-top:5px">📧 pedro.kaio@aluno.educa.go.gov.br / joannes.medrado@educa.go.gov.br</p>
     </div>
   </div>
 </div>
@@ -2330,7 +2546,7 @@ body::after{
 
     <div style="background:rgba(217,106,14,.06);border:1.5px solid rgba(217,106,14,.18);border-radius:13px;padding:18px;text-align:center" class="reveal">
       <p style="font-size:13px;color:rgba(255,255,255,.42);margin-bottom:8px">Os Termos devem ser <strong style="color:#fff">assinados e entregues fisicamente</strong> no dia do evento.</p>
-      <p style="font-size:13px;color:#f09030;font-weight:700">Dúvidas? 📧 <a href="mailto:pedro.kaio@aluno.educa.go.gov.br" style="color:#4ade80">pedro.kaio@aluno.educa.go.gov.br</a></p>
+      <p style="font-size:13px;color:#f09030;font-weight:700">Dúvidas? 📧 <a href="mailto:pedro.kaio@aluno.educa.go.gov.br" style="color:#4ade80">pedro.kaio@aluno.educa.go.gov.br</a> / <a href="mailto:joannes.medrado@educa.go.gov.br" style="color:#4ade80">joannes.medrado@educa.go.gov.br</a></p>
     </div>
   </div>
 </div>
@@ -2347,7 +2563,7 @@ body::after{
     <div style="background:rgba(79,140,255,.05);border:1.5px solid rgba(79,140,255,.2);border-radius:13px;padding:18px;margin-top:22px;text-align:center" class="reveal">
       <p style="font-size:13.5px;color:rgba(255,255,255,.42);margin-bottom:9px">Não encontrou sua resposta?</p>
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-        <a href="mailto:pedro.kaio@aluno.educa.go.gov.br" class="btn btn-green" style="padding:9px 18px;font-size:13px" target="_blank">📧 Contato</a>
+        <a href="mailto:pedro.kaio@aluno.educa.go.gov.br,joannes.medrado@educa.go.gov.br" class="btn btn-green" style="padding:9px 18px;font-size:13px" target="_blank">📧 Contato</a>
         <button class="btn btn-ghost" onclick="goTo('home')" style="font-size:13px;padding:9px 18px">← Início</button>
       </div>
     </div>
@@ -2412,7 +2628,7 @@ var ARC_DOCS={
 };
 var SB=supabase.createClient('https://vgdqlilrkueqxocjnlfo.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnZHFsaWxya3VlcXhvY2pubGZvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1Nzc5MDIsImV4cCI6MjA4ODE1MzkwMn0.iQAMuPcJUhUxJ3mfo945z2Gh5fvIFYuS6kh1VwpG-WA',{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});
 
-var AU='ARC52001768',AP='52001768arc2026';
+// Autenticação via Supabase
 var DB=[],IS_AUTH=false,PROF=null;
 
 var MODS=[
@@ -2438,12 +2654,24 @@ var FAQ_DATA=[
   {q:'Quais materiais são proibidos nos robôs?',a:'São proibidos: materiais inflamáveis, explosivos, armas, projéteis, componentes perigosos e motores sem isolamento adequado. Todos os robôs passam por inspeção técnica obrigatória antes da competição. Robôs reprovados na inspeção estão desclassificados até aprovação.'},
   {q:'Quando e onde acontece o evento?',a:'O 1º Torneio ARC 2026 está marcado para 19 de agosto de 2026, no CEPI Dom Cândido do Penso, em Aruanã/GO.'},
   {q:'Qual o prazo para inscrições?',a:'As inscrições abrem em 18/05/2026 e encerram em 18/06/2026. Não são aceitas inscrições fora deste período.'},
-  {q:'Como tiro dúvidas?',a:'Entre em contato com Pedro Kaio (Organizador) pelo e-mail pedro.kaio@aluno.educa.go.gov.br com a coordenação do CEPI Dom Cândido do Penso.'}
+  {q:'Como tiro dúvidas?',a:'Entre em contato com Pedro Kaio (Organizador) pelo e-mail pedro.kaio@aluno.educa.go.gov.br ou com Joannes Medrado (Idealizador) pelo e-mail joannes.medrado@educa.go.gov.br, ou com a coordenação do CEPI Dom Cândido do Penso.'}
 ];
 
 var SERIES=['6º ano EF','7º ano EF','8º ano EF','9º ano EF','1ª série EM','2ª série EM','3ª série EM'];
 
+function toggleTheme(){
+  var isLight = document.body.classList.toggle('light-theme');
+  localStorage.setItem('arc_theme', isLight ? 'light' : 'dark');
+  var btn = document.getElementById('themeToggleBtn');
+  if(btn) btn.textContent = isLight ? '🌙' : '☀️';
+}
 window.addEventListener('DOMContentLoaded',function(){
+  var savedTheme = localStorage.getItem('arc_theme');
+  if(savedTheme === 'light'){
+    document.body.classList.add('light-theme');
+    var btn = document.getElementById('themeToggleBtn');
+    if(btn) btn.textContent = '🌙';
+  }
   buildParticles();buildHomeCards();buildFAQ();updateProfNavBtn();
   if(!tryRestoreFormDraft()){alunos=[{},{},{},{}];step=1;fd={};fotos=[];fdocs=[];}
   renderStep();initReveal();
@@ -2552,9 +2780,9 @@ function openModModal(id){
     '<ul style="padding-left:16px;font-size:13px;color:rgba(255,255,255,.52);line-height:2.1">'+m.rules.map(function(r){return'<li>'+r+'</li>';}).join('')+'</ul>'+
     '<div style="margin-top:13px;background:rgba(217,106,14,.07);border:1px solid rgba(217,106,14,.18);border-radius:10px;padding:11px 14px;font-size:13px;color:#f09030">💡 '+m.dica+'</div>'+
     '<div style="text-align:center;margin-top:18px"><button class="btn btn-orange" onclick="closeModModal();goTo(\'form\')" style="padding:10px 22px;font-size:13px">Inscrever nesta modalidade →</button></div>';
-  document.getElementById('modModal').classList.add('open');
+  var dlg=document.getElementById('modModal'); if(dlg.showModal) dlg.showModal(); else dlg.classList.add('open');
 }
-function closeModModal(){document.getElementById('modModal').classList.remove('open');}
+function closeModModal(){var dlg=document.getElementById('modModal'); if(dlg.close) dlg.close(); else dlg.classList.remove('open');}
 
 function buildFAQ(){
   document.getElementById('faqList').innerHTML=FAQ_DATA.map(function(f,i){
@@ -2563,8 +2791,8 @@ function buildFAQ(){
 }
 function toggleFAQ(i){document.getElementById('faq'+i).classList.toggle('open');}
 
-function openLightbox(src){document.getElementById('lightboxImg').src=src;document.getElementById('lightbox').classList.add('open');}
-function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+function openLightbox(src){document.getElementById('lightboxImg').src=src;var dlg=document.getElementById('lightbox'); if(dlg.showModal) dlg.showModal(); else dlg.classList.add('open');}
+function closeLightbox(){var dlg=document.getElementById('lightbox'); if(dlg.close) dlg.close(); else dlg.classList.remove('open');}
 
 async function dlPDFUrl(fname){
   var doc=ARC_DOCS[fname];
@@ -2752,7 +2980,7 @@ function s6(){var mods=(fd.modalidades||[]).join(' · ')||'—';var ah=(alunos||
 
 function saveStep(){function gv(id){var e=document.getElementById(id);return e?e.value.trim():'';}if(step===1){fd.escola=gv('f_escola');fd.municipio=gv('f_municipio');fd.tipo=gv('f_tipo');fd.profnome=gv('f_profnome');fd.profemail=gv('f_profemail');fd.proftel=gv('f_proftel');fd.profcpf=gv('f_profcpf');fd.profdisc=gv('f_profdisc');}else if(step===2){fd.equipe=gv('f_equipe');fd.cidade=gv('f_cidade');fd.exp=gv('f_exp');fd.contato=gv('f_contato');fd.modalidades=getMods();}else if(step===4){fd.robonome=gv('f_robonome');fd.kit=gv('f_kit');fd.area=gv('f_area');fd.resumo=gv('f_resumo');fd.problema=gv('f_problema');}saveFormDraft();}
 function getMods(){var m=[];document.querySelectorAll('.mitem.on').forEach(function(e){m.push(e.textContent.trim());});return m;}
-function validate(){function need(id,lbl){var e=document.getElementById(id);if(!e)return true;if(!e.value.trim()){e.classList.add('err');setTimeout(function(){e.classList.remove('err');},2500);toast('Obrigatório: '+lbl,'er');e.focus();return false;}return true;}if(step===1){
+function validate(){function need(id,lbl){var e=document.getElementById(id);if(!e)return true;if(!e.value.trim()){e.classList.add('err');e.addEventListener('input',function(){e.classList.remove('err');},{once:true});toast('Obrigatório: '+lbl,'er');e.focus();return false;}return true;}if(step===1){
     if(!need('f_escola','Nome da Escola')||!need('f_municipio','Município')||!need('f_tipo','Tipo de Escola')||!need('f_profnome','Nome do Professor')||!need('f_profemail','E-mail')||!need('f_proftel','WhatsApp'))return false;
     var email=document.getElementById('f_profemail').value.trim();
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){var e=document.getElementById('f_profemail');if(e){e.classList.add('err');setTimeout(function(){e.classList.remove('err');},2500);e.focus();}toast('E-mail inválido','er');return false;}
@@ -2761,7 +2989,7 @@ function validate(){function need(id,lbl){var e=document.getElementById(id);if(!
   if(step===2){if(!need('f_equipe','Nome da Equipe'))return false;if(getMods().length===0){toast('Selecione ao menos uma modalidade','er');return false;}return true;}if(step===3){if(alunos.length<4){toast('Mínimo 4 alunos','er');return false;}for(var i=0;i<alunos.length;i++){if(!alunos[i].nome){toast('Preencha o nome do Aluno '+(i+1),'er');return false;}if(!alunos[i].serie){toast('Selecione a série do Aluno '+(i+1),'er');return false;}}return true;}if(step===4)return need('f_robonome','Nome do Robô')&&need('f_kit','Kit')&&need('f_resumo','Resumo');if(step===5){var c=document.getElementById('chkE'), i=document.getElementById('chkI');if(!c||!c.checked){toast('Aceite os termos do Edital','er');return false;}if(!i||!i.checked){toast('Autorizo o uso de imagens e produções','er');return false;}return true;}return true;}
 function nextStep(){if(!validate())return;saveStep();step++;renderStep();}
 function prevStep(){saveStep();step--;renderStep();}
-function hf(files,t){var arr=t==='p'?fotos:fdocs,maxMB=t==='p'?5:10;Array.prototype.forEach.call(files,function(f){if(f.size>maxMB*1024*1024){toast(f.name+': máx '+maxMB+'MB','er');return;}if(arr.length>=5){toast('Limite de 5 arquivos','er');return;}var reader=new FileReader();reader.onload=function(e){arr.push({name:f.name,size:f.size,mime:f.type,data:e.target.result});rpills(t);};reader.readAsDataURL(f);});}
+function hf(files,t){var arr=t==='p'?fotos:fdocs,maxMB=t==='p'?5:10;Array.prototype.forEach.call(files,function(f){if(f.size>maxMB*1024*1024){toast(f.name+': máx '+maxMB+'MB','er');return;}if(arr.length>=5){toast('Limite de 5 arquivos','er');return;}var reader=new FileReader();reader.onload=function(e){if(f.type.startsWith('image/')){var img=new Image();img.onload=function(){var cvs=document.createElement('canvas'),ctx=cvs.getContext('2d'),w=img.width,h=img.height,max=800;if(w>max||h>max){var r=Math.min(max/w,max/h);w=Math.round(w*r);h=Math.round(h*r);}cvs.width=w;cvs.height=h;ctx.drawImage(img,0,0,w,h);var b64=cvs.toDataURL('image/jpeg',0.7);var cmpSize=Math.round(b64.length*0.75);arr.push({name:f.name,size:cmpSize,mime:'image/jpeg',data:b64});rpills(t);};img.src=e.target.result;}else{arr.push({name:f.name,size:f.size,mime:f.type,data:e.target.result});rpills(t);}};reader.readAsDataURL(f);});}
 function rpills(t){var arr=t==='p'?fotos:fdocs,id=t==='p'?'ppP':'ppD';var el=document.getElementById(id);if(!el)return;el.innerHTML=arr.map(function(f,i){return'<div class="fpill"><span class="fpill-n">'+f.name+'</span><span class="fpill-s"> '+(f.size/1024).toFixed(0)+'KB</span><span class="fpill-x" onclick="rmf(\''+t+'\','+i+')">✕</span></div>';}).join('');}
 function rmf(t,i){(t==='p'?fotos:fdocs).splice(i,1);rpills(t);}
 function dov(e,id){e.preventDefault();document.getElementById(id).classList.add('drag');}
@@ -2778,7 +3006,7 @@ async function submitForm(){
     if(!fd.escola)fd.escola=PROF.escola||'';
     if(!fd.municipio)fd.municipio=PROF.municipio||'';
   }
-  var btn=document.getElementById('btnConf');if(btn){btn.disabled=true;btn.textContent='Enviando...';}var rec={codigo:gcode(),data_hora:new Date().toLocaleString('pt-BR'),status:'Em Revisão',escola:fd.escola,municipio:fd.municipio,tipo:fd.tipo,professor:{nome:fd.profnome,email:fd.profemail,tel:fd.proftel,cpf:fd.profcpf,disc:fd.profdisc},equipe:{nome:fd.equipe,cidade:fd.cidade,exp:fd.exp,contato:fd.contato,modalidades:fd.modalidades||[]},alunos:JSON.parse(JSON.stringify(alunos)),projeto:{nome:fd.robonome,kit:fd.kit,area:fd.area,resumo:fd.resumo,problema:fd.problema},arquivos:{fotos:fotos.map(function(f){return{name:f.name,size:f.size,mime:f.type,data:f.data};}),docs:fdocs.map(function(f){return{name:f.name,size:f.size,mime:f.type,data:f.data};})}};try{var r=await SB.from('inscricoes').insert([rec]);if(r.error)throw r.error;try{localStorage.removeItem('arcform_draft_v1');}catch(e){}document.getElementById('stepper').style.display='none';document.getElementById('stepContent').style.display='none';document.querySelector('.form-header').style.display='none';document.getElementById('sucCode').textContent=rec.codigo;document.getElementById('successScreen').classList.add('show');toast('✅ Inscrição enviada!','ok');}catch(e){console.error(e);toast('Erro ao enviar: '+e.message,'er');if(btn){btn.disabled=false;btn.textContent='✓ Confirmar Inscrição';}}}
+  var btn=document.getElementById('btnConf');if(btn){btn.disabled=true;btn.innerHTML='<span class="btn-spinner"></span> Enviando...';}var rec={codigo:gcode(),data_hora:new Date().toLocaleString('pt-BR'),status:'Em Revisão',escola:fd.escola,municipio:fd.municipio,tipo:fd.tipo,professor:{nome:fd.profnome,email:fd.profemail,tel:fd.proftel,cpf:fd.profcpf,disc:fd.profdisc},equipe:{nome:fd.equipe,cidade:fd.cidade,exp:fd.exp,contato:fd.contato,modalidades:fd.modalidades||[]},alunos:JSON.parse(JSON.stringify(alunos)),projeto:{nome:fd.robonome,kit:fd.kit,area:fd.area,resumo:fd.resumo,problema:fd.problema},arquivos:{fotos:fotos.map(function(f){return{name:f.name,size:f.size,mime:f.type,data:f.data};}),docs:fdocs.map(function(f){return{name:f.name,size:f.size,mime:f.type,data:f.data};})}};try{var r=await SB.from('inscricoes').insert([rec]);if(r.error)throw r.error;try{localStorage.removeItem('arcform_draft_v1');}catch(e){}document.getElementById('stepper').style.display='none';document.getElementById('stepContent').style.display='none';document.querySelector('.form-header').style.display='none';document.getElementById('sucCode').textContent=rec.codigo;document.getElementById('successScreen').classList.add('show');toast('✅ Inscrição enviada!','ok');}catch(e){console.error(e);toast('Erro ao enviar: '+e.message,'er');if(btn){btn.disabled=false;btn.innerHTML='✓ Confirmar Inscrição';}}}
 function resetForm(){try{localStorage.removeItem('arcform_draft_v1');}catch(e){}step=1;fd={};alunos=[{},{},{},{}];fotos=[];fdocs=[];document.getElementById('successScreen').classList.remove('show');document.getElementById('stepper').style.display='flex';document.getElementById('stepContent').style.display='block';document.querySelector('.form-header').style.display='block';renderStep();}
 
 
@@ -2974,7 +3202,7 @@ var ARC_FAQ=[
   {k:['premiação','premiacao','trofeu','troféu','medalha','certificado','prêmio','premio'],
    r:'🏆 Premiação:\n• 🥇🥈🥉 1º, 2º e 3º: Troféu + Medalha + Certificado\n• 🏅 Troféu especial Melhor Documentação\n• 🌟 Troféu especial Melhor Core Values\n• 🏆 Troféu Campeão Geral ARC 2026\n• 📜 Certificado de participação para TODOS'},
   {k:['contato','email','dúvida','duvida','pedro'],
-   r:'📞 Contato:\n• Pedro Kaio (Organizador): pedro.kaio@aluno.educa.go.gov.br\n• Local: CEPI Dom Cândido do Penso · Aruanã, GO'},
+   r:'📞 Contato:\n• Pedro Kaio (Organizador): pedro.kaio@aluno.educa.go.gov.br\n• Joannes Medrado (Idealizador): joannes.medrado@educa.go.gov.br\n• Local: CEPI Dom Cândido do Penso · Aruanã, GO'},
   {k:['evento','dia','agosto','cepi','aruanã','aruanã','local','onde'],
    r:'📍 Evento:\n• Data: 19 de Agosto de 2026\n• Local: CEPI Dom Cândido do Penso\n• Cidade: Aruanã, Goiás\n• Cronograma completo: veja a aba Cronograma no site'},
   {k:['diário','diario','bordo','entrega','digital','físico','fisico'],
@@ -3056,7 +3284,7 @@ function arcBotReply(q){
   }
   if(ARC_TOPIC&&ql.length<42)
     return 'Entendi que você quer continuar sobre '+ARC_TOPIC+'. Me dá mais um detalhe para eu acertar melhor: data, modalidade, documento, pontuação ou regra?\n\n'+arcSmartSuggestions();
-  return '🤖 Ainda não achei uma resposta segura no meu índice local.\n\n'+arcSmartSuggestions()+'\n\nContato direto: pedro.kaio@aluno.educa.go.gov.br';
+  return '🤖 Ainda não achei uma resposta segura no meu índice local.\n\n'+arcSmartSuggestions()+'\n\nContato direto: pedro.kaio@aluno.educa.go.gov.br ou joannes.medrado@educa.go.gov.br';
 }
 function arcTypingOn(chatId){
   var chat=document.getElementById(chatId);if(!chat)return;
@@ -3238,8 +3466,8 @@ function exportRelatorioWord(){
   toast('Relatório Word gerado!','ok');
 }
 
-function doLogin(){var u=document.getElementById('lu').value.trim(),p=document.getElementById('lp').value;if(u===AU&&p===AP){IS_AUTH=true;document.getElementById('loginWrap').style.display='none';document.getElementById('dash').classList.add('show');loadData();}else{var e=document.getElementById('lerr');e.classList.add('show');setTimeout(function(){e.classList.remove('show');},3500);toast('Credenciais incorretas','er');}}
-function doLogout(){IS_AUTH=false;document.getElementById('loginWrap').style.display='block';document.getElementById('dash').classList.remove('show');document.getElementById('lu').value='';document.getElementById('lp').value='';}
+async function doLogin(){var u=document.getElementById('lu').value.trim(),p=document.getElementById('lp').value;var {data,error}=await SB.auth.signInWithPassword({email:u,password:p});if(error){var e=document.getElementById('lerr');e.classList.add('show');setTimeout(function(){e.classList.remove('show');},3500);toast('Credenciais incorretas','er');}else{IS_AUTH=true;document.getElementById('loginWrap').style.display='none';document.getElementById('dash').classList.add('show');loadData();}}
+async function doLogout(){await SB.auth.signOut();IS_AUTH=false;document.getElementById('loginWrap').style.display='block';document.getElementById('dash').classList.remove('show');document.getElementById('lu').value='';document.getElementById('lp').value='';}
 async function loadData(){
   showLoad();
   var r;
@@ -3255,11 +3483,11 @@ async function loadData(){
 function renderKPIs(){var al=DB.reduce(function(s,i){return s+(i.alunos||[]).length;},0);var esc=new Set(DB.map(function(i){return i.escola;})).size;var muns=new Set(DB.map(function(i){return i.municipio;})).size;var fotsT=DB.reduce(function(s,i){return s+((i.arquivos&&i.arquivos.fotos)||[]).length;},0);var rev=DB.filter(function(i){return i.status==='Em Revisão';}).length;var conf=DB.filter(function(i){return i.status==='Confirmada';}).length;document.getElementById('kpiGrid').innerHTML=[['INSCRIÇÕES',DB.length,'equipes'],['ALUNOS',al,'total'],['ESCOLAS',esc,'instituições'],['MUNICÍPIOS',muns,'cidades GO'],['CONFIRMADAS',conf,''],['EM REVISÃO',rev,''],['FOTOS',fotsT,'recebidas']].map(function(k){return'<div class="kpi"><div class="kpi-l">'+k[0]+'</div><div class="kpi-v">'+k[1]+'</div><div class="kpi-s">'+k[2]+'</div></div>';}).join('');}
 function renderTable(){var s=(document.getElementById('fSearch')||{}).value||'';s=s.toLowerCase();var fm=(document.getElementById('fMod')||{}).value||'';var fs=(document.getElementById('fStatus')||{}).value||'';var f=DB.filter(function(i){var ms=!s||[i.codigo,i.escola,i.equipe&&i.equipe.nome,i.professor&&i.professor.nome,i.municipio].some(function(v){return(v||'').toLowerCase().indexOf(s)>=0;});var mm=!fm||(i.equipe&&i.equipe.modalidades&&i.equipe.modalidades.indexOf(fm)>=0);var mst=!fs||i.status===fs;return ms&&mm&&mst;});var tb=document.getElementById('tBody'),em=document.getElementById('emptyState');if(!f.length){tb.innerHTML='';em.style.display='block';document.getElementById('emptyMsg').textContent=DB.length===0?'Nenhuma inscrição ainda.':'Nenhum resultado.';return;}em.style.display='none';var stCls={Confirmada:'st-conf','Em Revisão':'st-rev',Recusada:'st-rec'};tb.innerHTML=f.map(function(i,idx){var mods=(i.equipe&&i.equipe.modalidades||[]).map(function(m){return'<span class="badge badge-mod">'+m+'</span>';}).join('');var sc=stCls[i.status]||'st-rev';var nF=(i.arquivos&&i.arquivos.fotos||[]).length,nD=(i.arquivos&&i.arquivos.docs||[]).length;return'<tr><td style="color:rgba(255,255,255,.25)">'+(idx+1)+'</td><td class="td-code">'+i.codigo+'</td><td class="td-bold">'+(i.equipe&&i.equipe.nome||'—')+'</td><td>'+(i.escola||'—')+'<div class="td-sub">'+(i.tipo||'')+'</div></td><td>'+(i.municipio||'—')+'</td><td>'+(i.professor&&i.professor.nome||'—')+'<div class="td-sub">'+(i.professor&&i.professor.tel||'')+'</div></td><td style="font-size:10px;line-height:2">'+mods+'</td><td style="font-family:Rajdhani,sans-serif;font-size:22px;font-weight:700;color:#f09030;text-align:center">'+(i.alunos||[]).length+'</td><td style="text-align:center">'+(nF?'<span style="color:#4ade80;font-size:11px">📷'+nF+'</span>':'—')+(nD?' <span style="color:#93bbff;font-size:11px">📄'+nD+'</span>':'')+'</td><td><span class="st-badge '+sc+'">'+stIcon(i.status)+' '+(i.status||'Em Revisão')+'</span></td><td style="font-size:10px;color:rgba(255,255,255,.28);white-space:nowrap">'+(i.data_hora||'')+'</td><td style="white-space:nowrap"><button class="btn-view" onclick="showDetail('+i.id+')">Ver</button><button class="btn-del" onclick="delRec('+i.id+')">✕</button></td></tr>';}).join('');}
 async function delRec(id){if(!confirm('Excluir permanentemente?'))return;showLoad();var r=await SB.from('inscricoes').delete().eq('id',id);hideLoad();if(r.error){toast('Erro: '+r.error.message,'er');return;}toast('Excluída','er');await loadData();}
-function showDetail(id){var i=DB.find(function(x){return x.id===id;});if(!i)return;var mods=(i.equipe&&i.equipe.modalidades||[]).join(', ')||'—';var aHtml=(i.alunos||[]).map(function(a,n){return'<div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:9px;padding:5px 10px;margin:2px"><div><div style="font-size:13px;font-weight:700">'+(n+1)+'. '+(a.nome||'—')+'</div><div style="font-size:11px;color:rgba(255,255,255,.35)">'+(a.serie||'—')+(a.genero?' · '+a.genero:'')+'</div></div></div>';}).join('');var fotosArr=(i.arquivos&&i.arquivos.fotos)||[];var docsArr=(i.arquivos&&i.arquivos.docs)||[];var fotosHtml=fotosArr.length?'<div class="img-gallery">'+fotosArr.map(function(f){return f.data?'<img class="img-thumb" src="'+f.data+'" title="'+f.name+'" onclick="openLightbox(\''+f.data+'\')" alt="">':'<div style="width:78px;height:78px;border-radius:9px;background:rgba(255,255,255,.04);border:2px dashed rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:20px">📷</div>';}).join('')+'</div>':'';var docsHtml=docsArr.length?docsArr.map(function(f){return f.data?'<a class="doc-pill" href="'+f.data+'" download="'+f.name+'">📄 '+f.name+' <span style="font-size:10px;opacity:.5">'+(f.size/1024).toFixed(0)+'KB</span></a>':'<span class="doc-pill">📄 '+f.name+'</span>';}).join(''):'';var stCls={Confirmada:'st-conf','Em Revisão':'st-rev',Recusada:'st-rec'};document.getElementById('detailContent').innerHTML='<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:15px;flex-wrap:wrap;gap:8px"><div><div style="font-family:Rajdhani,sans-serif;font-size:23px;font-weight:700">'+(i.equipe&&i.equipe.nome||'—')+'</div><div style="font-size:10px;color:rgba(255,255,255,.35);margin-top:2px">'+i.data_hora+'</div></div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px"><div style="font-family:JetBrains Mono,monospace;font-size:12.5px;color:#4ade80;background:rgba(34,197,94,.09);border:1.5px solid rgba(34,197,94,.25);border-radius:9px;padding:4px 12px">'+i.codigo+'</div><span class="st-badge '+(stCls[i.status]||'st-rev')+'">'+stIcon(i.status)+' '+(i.status||'Em Revisão')+'</span></div></div><div class="ds"><div class="ds-title">Escola & Professor</div><div class="dg">'+di('Escola',i.escola)+di('Município · Tipo',(i.municipio||'—')+' · '+(i.tipo||'—'))+di('Professor',(i.professor&&i.professor.nome)||'—')+di('E-mail',(i.professor&&i.professor.email)||'—')+di('WhatsApp',(i.professor&&i.professor.tel)||'—')+di('Disciplina',(i.professor&&i.professor.disc)||'—')+'</div></div><div class="ds"><div class="ds-title">Equipe & Modalidades</div><div class="dg">'+di('Nome',(i.equipe&&i.equipe.nome)||'—')+di('Cidade',(i.equipe&&i.equipe.cidade)||'—')+'<div class="di" style="grid-column:span 2">'+di('Modalidades',mods)+'</div></div></div><div class="ds"><div class="ds-title">Alunos ('+(i.alunos||[]).length+')</div><div style="display:flex;flex-wrap:wrap;gap:2px">'+aHtml+'</div></div><div class="ds"><div class="ds-title">Projeto</div><div class="dg">'+di('Nome',(i.projeto&&i.projeto.nome)||'—')+di('Kit',(i.projeto&&i.projeto.kit)||'—')+'</div>'+(i.projeto&&i.projeto.resumo?'<div class="di" style="margin-top:7px"><div class="dl" style="font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.5px;font-weight:700;text-transform:uppercase">Resumo</div><div style="font-size:13px;color:rgba(255,255,255,.48);line-height:1.7;margin-top:2px">'+i.projeto.resumo+'</div></div>':'')+'</div>'+(fotosArr.length?'<div class="ds"><div class="ds-title">📷 Fotos ('+fotosArr.length+')</div>'+fotosHtml+'</div>':'')+(docsArr.length?'<div class="ds"><div class="ds-title">📄 Documentos</div><div style="margin-top:5px">'+docsHtml+'</div></div>':'')+'<div class="ds"><div class="ds-title">Alterar Status</div><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">'+['Confirmada','Em Revisão','Recusada'].map(function(s){var active=i.status===s;return'<button onclick="setStatus('+i.id+',\''+s+'\')" style="padding:7px 14px;border-radius:8px;border:1.5px solid rgba(255,255,255,.16);background:'+(active?'rgba(217,106,14,.22)':'rgba(255,255,255,.05)')+';color:'+(active?'#f09030':'rgba(255,255,255,.55)')+';font-family:Inter,sans-serif;font-weight:700;font-size:12px;cursor:pointer;transition:all .2s">'+s+'</button>';}).join('')+'</div></div><div class="ds"><div class="ds-title">Observação para o Professor</div><textarea class="admin-note" id="noteArea" placeholder="Esta mensagem ficará visível para o professor...">'+( i.observacoes||'')+'</textarea></div><div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap"><button class="btn btn-orange" onclick="saveNote('+i.id+')" style="padding:9px 18px;font-size:13px">💾 Salvar</button><button class="btn btn-ghost" onclick="closeDetail()" style="padding:9px 15px;font-size:13px">Fechar</button></div>';document.getElementById('overlay').classList.add('open');}
+function showDetail(id){var i=DB.find(function(x){return x.id===id;});if(!i)return;var mods=(i.equipe&&i.equipe.modalidades||[]).join(', ')||'—';var aHtml=(i.alunos||[]).map(function(a,n){return'<div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:9px;padding:5px 10px;margin:2px"><div><div style="font-size:13px;font-weight:700">'+(n+1)+'. '+(a.nome||'—')+'</div><div style="font-size:11px;color:rgba(255,255,255,.35)">'+(a.serie||'—')+(a.genero?' · '+a.genero:'')+'</div></div></div>';}).join('');var fotosArr=(i.arquivos&&i.arquivos.fotos)||[];var docsArr=(i.arquivos&&i.arquivos.docs)||[];var fotosHtml=fotosArr.length?'<div class="img-gallery">'+fotosArr.map(function(f){return f.data?'<img class="img-thumb" src="'+f.data+'" title="'+f.name+'" onclick="openLightbox(\''+f.data+'\')" alt="">':'<div style="width:78px;height:78px;border-radius:9px;background:rgba(255,255,255,.04);border:2px dashed rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:20px">📷</div>';}).join('')+'</div>':'';var docsHtml=docsArr.length?docsArr.map(function(f){return f.data?'<a class="doc-pill" href="'+f.data+'" download="'+f.name+'">📄 '+f.name+' <span style="font-size:10px;opacity:.5">'+(f.size/1024).toFixed(0)+'KB</span></a>':'<span class="doc-pill">📄 '+f.name+'</span>';}).join(''):'';var stCls={Confirmada:'st-conf','Em Revisão':'st-rev',Recusada:'st-rec'};document.getElementById('detailContent').innerHTML='<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:15px;flex-wrap:wrap;gap:8px"><div><div style="font-family:Rajdhani,sans-serif;font-size:23px;font-weight:700">'+(i.equipe&&i.equipe.nome||'—')+'</div><div style="font-size:10px;color:rgba(255,255,255,.35);margin-top:2px">'+i.data_hora+'</div></div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px"><div style="font-family:JetBrains Mono,monospace;font-size:12.5px;color:#4ade80;background:rgba(34,197,94,.09);border:1.5px solid rgba(34,197,94,.25);border-radius:9px;padding:4px 12px">'+i.codigo+'</div><span class="st-badge '+(stCls[i.status]||'st-rev')+'">'+stIcon(i.status)+' '+(i.status||'Em Revisão')+'</span></div></div><div class="ds"><div class="ds-title">Escola & Professor</div><div class="dg">'+di('Escola',i.escola)+di('Município · Tipo',(i.municipio||'—')+' · '+(i.tipo||'—'))+di('Professor',(i.professor&&i.professor.nome)||'—')+di('E-mail',(i.professor&&i.professor.email)||'—')+di('WhatsApp',(i.professor&&i.professor.tel)||'—')+di('Disciplina',(i.professor&&i.professor.disc)||'—')+'</div></div><div class="ds"><div class="ds-title">Equipe & Modalidades</div><div class="dg">'+di('Nome',(i.equipe&&i.equipe.nome)||'—')+di('Cidade',(i.equipe&&i.equipe.cidade)||'—')+'<div class="di" style="grid-column:span 2">'+di('Modalidades',mods)+'</div></div></div><div class="ds"><div class="ds-title">Alunos ('+(i.alunos||[]).length+')</div><div style="display:flex;flex-wrap:wrap;gap:2px">'+aHtml+'</div></div><div class="ds"><div class="ds-title">Projeto</div><div class="dg">'+di('Nome',(i.projeto&&i.projeto.nome)||'—')+di('Kit',(i.projeto&&i.projeto.kit)||'—')+'</div>'+(i.projeto&&i.projeto.resumo?'<div class="di" style="margin-top:7px"><div class="dl" style="font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.5px;font-weight:700;text-transform:uppercase">Resumo</div><div style="font-size:13px;color:rgba(255,255,255,.48);line-height:1.7;margin-top:2px">'+i.projeto.resumo+'</div></div>':'')+'</div>'+(fotosArr.length?'<div class="ds"><div class="ds-title">📷 Fotos ('+fotosArr.length+')</div>'+fotosHtml+'</div>':'')+(docsArr.length?'<div class="ds"><div class="ds-title">📄 Documentos</div><div style="margin-top:5px">'+docsHtml+'</div></div>':'')+'<div class="ds"><div class="ds-title">Alterar Status</div><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">'+['Confirmada','Em Revisão','Recusada'].map(function(s){var active=i.status===s;return'<button onclick="setStatus('+i.id+',\''+s+'\')" style="padding:7px 14px;border-radius:8px;border:1.5px solid rgba(255,255,255,.16);background:'+(active?'rgba(217,106,14,.22)':'rgba(255,255,255,.05)')+';color:'+(active?'#f09030':'rgba(255,255,255,.55)')+';font-family:Inter,sans-serif;font-weight:700;font-size:12px;cursor:pointer;transition:all .2s">'+s+'</button>';}).join('')+'</div></div><div class="ds"><div class="ds-title">Observação para o Professor</div><textarea class="admin-note" id="noteArea" placeholder="Esta mensagem ficará visível para o professor...">'+( i.observacoes||'')+'</textarea></div><div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap"><button class="btn btn-orange" onclick="saveNote('+i.id+')" style="padding:9px 18px;font-size:13px">💾 Salvar</button><button class="btn btn-ghost" onclick="closeDetail()" style="padding:9px 15px;font-size:13px">Fechar</button></div>';var dlg=document.getElementById('overlay'); if(dlg.showModal) dlg.showModal(); else dlg.classList.add('open');}
 function di(l,v){return'<div class="di"><div class="dl">'+l+'</div><div class="dv">'+v+'</div></div>';}
 async function saveNote(id){var note=document.getElementById('noteArea').value;showLoad();var r=await SB.from('inscricoes').update({observacoes:note}).eq('id',id);hideLoad();if(r.error){toast('Erro: '+r.error.message,'er');return;}toast('Salvo!','ok');var rec=DB.find(function(x){return x.id===id;});if(rec)rec.observacoes=note;}
 async function setStatus(id,status){showLoad();var r=await SB.from('inscricoes').update({status:status}).eq('id',id);hideLoad();if(r.error){toast('Erro','er');return;}toast('Status: '+status,'ok');var rec=DB.find(function(x){return x.id===id;});if(rec)rec.status=status;renderTable();closeDetail();setTimeout(function(){showDetail(id);},200);}
-function closeDetail(){document.getElementById('overlay').classList.remove('open');}
+function closeDetail(){var dlg=document.getElementById('overlay'); if(dlg.close) dlg.close(); else dlg.classList.remove('open');}
 function exportCSV(){if(!DB.length){toast('Nenhuma inscrição','er');return;}var h=['Código','Data','Status','Escola','Município','Tipo','Professor','E-mail Prof','WhatsApp','CPF','Disciplina','Equipe','Cidade','Modalidades','Qtd Alunos','Robô','Kit','Área','Resumo','Fotos','Docs','A1','S1','A2','S2','A3','S3','A4','S4','A5','S5','A6','S6','A7','S7','A8','S8','Observações'];var rows=DB.map(function(i){var ac=[];for(var k=0;k<8;k++){var a=(i.alunos||[])[k];ac.push(a&&a.nome||'',a&&a.serie||'');}return[i.codigo,i.data_hora,i.status,i.escola,i.municipio,i.tipo,i.professor&&i.professor.nome,i.professor&&i.professor.email,i.professor&&i.professor.tel,i.professor&&i.professor.cpf,i.professor&&i.professor.disc,i.equipe&&i.equipe.nome,i.equipe&&i.equipe.cidade,(i.equipe&&i.equipe.modalidades||[]).join('; '),(i.alunos||[]).length,i.projeto&&i.projeto.nome,i.projeto&&i.projeto.kit,i.projeto&&i.projeto.area,i.projeto&&i.projeto.resumo,((i.arquivos&&i.arquivos.fotos)||[]).length,((i.arquivos&&i.arquivos.docs)||[]).length].concat(ac).concat([i.observacoes||'']).map(function(v){return'"'+String(v===null||v===undefined?'':v).replace(/"/g,'""')+'"';});});var csv='\uFEFF'+[h.join(',')].concat(rows.map(function(r){return r.join(',');})).join('\n');var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='ARC2026_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);toast('CSV exportado!','ok');}
 window.addEventListener('keydown', function(e){
   if(e.key==='Escape'){
