@@ -447,10 +447,10 @@ td{padding:11px 11px;font-size:12.5px;vertical-align:middle}
 .empty-state{text-align:center;padding:48px 20px;color:rgba(255,255,255,.25)}
 
 /* OVERLAY */
-.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.86);z-index:700;align-items:center;justify-content:center;padding:13px}
-.overlay.open{display:flex}
-.obox{background:#081929;border:1px solid rgba(255,255,255,.1);border-top:4px solid #d96a0e;border-radius:22px;padding:30px;width:100%;max-width:740px;max-height:90vh;overflow-y:auto;position:relative;animation:scaleIn .26s ease}
-.oclose{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.07);border:none;color:rgba(255,255,255,.45);width:32px;height:32px;border-radius:9px;font-size:16px;cursor:pointer;transition:all .2s}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.86);z-index:700;align-items:center;justify-content:center;padding:18px;margin:auto;width:100vw;height:100vh;box-sizing:border-box}
+.overlay.open,.overlay[open]{display:flex;align-items:center;justify-content:center}
+.obox{background:#081929;border:1px solid rgba(255,255,255,.1);border-top:4px solid #d96a0e;border-radius:22px;padding:30px;width:min(780px,calc(100vw - 36px));max-height:min(88vh,860px);overflow-y:auto;position:relative;animation:scaleIn .26s ease;margin:auto;box-sizing:border-box;box-shadow:0 24px 80px rgba(0,0,0,.72),0 0 0 1px rgba(255,255,255,.03) inset;scrollbar-width:thin;scrollbar-color:rgba(217,106,14,.45) rgba(255,255,255,.06)}
+.oclose{position:sticky;top:0;float:right;margin:-16px -16px 6px 10px;z-index:3;background:rgba(255,255,255,.09);backdrop-filter:blur(10px);border:none;color:rgba(255,255,255,.62);width:34px;height:34px;border-radius:10px;font-size:16px;cursor:pointer;transition:all .2s}
 .oclose:hover{background:rgba(239,68,68,.2);color:#f87171}
 .ds{margin-bottom:17px}
 .ds-title{font-family:'Rajdhani',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:1.5px;color:#f5c842;text-transform:uppercase;margin-bottom:7px;padding-bottom:4px;border-bottom:1px solid rgba(245,200,66,.16)}
@@ -488,7 +488,7 @@ td{padding:11px 11px;font-size:12.5px;vertical-align:middle}
 .detail-status-btn:hover{transform:translateY(-2px);border-color:rgba(217,106,14,.45);color:#f09030;background:rgba(217,106,14,.1)}
 .detail-status-btn.active{background:rgba(217,106,14,.2);border-color:rgba(217,106,14,.45);color:#f8b56a;box-shadow:0 8px 22px rgba(217,106,14,.14)}
 .detail-actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:12px}
-@media(max-width:560px){.detail-side{align-items:flex-start}.detail-head{margin:-6px -4px 14px;padding:16px 14px}.ds{padding:12px}.student-chip{flex-basis:100%}}
+@media(max-width:560px){.overlay{padding:10px}.obox{width:calc(100vw - 20px);max-height:90vh;padding:22px 16px 18px;border-radius:18px}.detail-side{align-items:flex-start}.detail-head{margin:-4px -2px 14px;padding:16px 14px}.ds{padding:12px}.student-chip{flex-basis:100%}.detail-actions .btn{width:100%;justify-content:center}}
 
 /* LOADING / TOAST */
 .loading-screen{display:none;position:fixed;inset:0;z-index:9999;background:rgba(4,17,31,.94);align-items:center;justify-content:center;flex-direction:column;gap:13px}
@@ -1998,6 +1998,7 @@ dialog {
   border: none;
   background: transparent;
   padding: 0;
+  margin: auto;
   outline: none;
   max-width: 100vw;
   max-height: 100vh;
@@ -2248,6 +2249,7 @@ dialog::backdrop {
           <div class="field"><label class="flabel">E-mail</label><input class="fi" type="email" id="pl_email" placeholder="seu@email.com" onkeydown="if(event.key==='Enter')profLogin()"></div>
           <div class="field"><label class="flabel">Senha</label><input class="fi" type="password" id="pl_senha" placeholder="••••••••" onkeydown="if(event.key==='Enter')profLogin()"></div>
           <button class="btn btn-blue" style="width:100%;margin-top:8px;padding:12px;font-size:14px" onclick="profLogin()">Entrar</button>
+          <button class="btn btn-ghost" style="width:100%;margin-top:8px;padding:10px;font-size:12.5px" onclick="switchProfTab('reset')">Esqueci minha senha</button>
           <div class="lerr" id="profLoginErr">E-mail ou senha incorretos.</div>
         </div>
         <div id="profRegForm" style="display:none">
@@ -2257,6 +2259,17 @@ dialog::backdrop {
           <div class="field"><label class="flabel">Disciplina</label><input class="fi" id="pr_disc" placeholder="Ex: Robótica, Matemática..."></div>
           <button class="btn btn-green" style="width:100%;margin-top:10px;padding:12px;font-size:14px" onclick="profRegister()">Criar Conta</button>
           <div class="lerr" id="profRegErr"></div>
+        </div>
+        <div id="profResetForm" style="display:none">
+          <div style="background:rgba(79,140,255,.07);border:1px solid rgba(79,140,255,.18);border-radius:12px;padding:11px 13px;font-size:12px;color:#93bbff;line-height:1.55;margin-bottom:13px">
+            Para proteger o cadastro, confirme o e-mail e o WhatsApp usados na conta do professor.
+          </div>
+          <div class="field"><label class="flabel">E-mail cadastrado</label><input class="fi" type="email" id="rs_email" placeholder="seu@email.com"></div>
+          <div class="field"><label class="flabel">WhatsApp cadastrado</label><input class="fi" id="rs_tel" placeholder="(62) 9 9999-9999"></div>
+          <div class="g2"><div class="field"><label class="flabel">Nova senha</label><input class="fi" type="password" id="rs_senha" placeholder="Min 6 caracteres"></div><div class="field"><label class="flabel">Confirmar senha</label><input class="fi" type="password" id="rs_senha2" placeholder="Repita a senha" onkeydown="if(event.key==='Enter')profResetPassword()"></div></div>
+          <button class="btn btn-green" style="width:100%;margin-top:8px;padding:12px;font-size:14px" onclick="profResetPassword()">Redefinir senha</button>
+          <button class="btn btn-ghost" style="width:100%;margin-top:8px;padding:10px;font-size:12.5px" onclick="switchProfTab('login')">Voltar para login</button>
+          <div class="lerr" id="profResetErr"></div>
         </div>
       </div>
     </div>
@@ -2891,6 +2904,46 @@ function switchProfTab(t){
   document.getElementById('tabReg').classList.toggle('active',t==='reg');
   document.getElementById('profLoginForm').style.display=t==='login'?'block':'none';
   document.getElementById('profRegForm').style.display=t==='reg'?'block':'none';
+  var reset=document.getElementById('profResetForm');
+  if(reset)reset.style.display=t==='reset'?'block':'none';
+  if(t==='reset'){
+    var le=document.getElementById('pl_email'),re=document.getElementById('rs_email');
+    if(le&&re&&!re.value)re.value=le.value.trim().toLowerCase();
+  }
+}
+function digitsOnly(v){return String(v||'').replace(/\D/g,'');}
+async function profResetPassword(){
+  var email=document.getElementById('rs_email').value.trim().toLowerCase();
+  var tel=document.getElementById('rs_tel').value.trim();
+  var senha=document.getElementById('rs_senha').value;
+  var senha2=document.getElementById('rs_senha2').value;
+  var err=document.getElementById('profResetErr');
+  if(err){err.classList.remove('show');err.textContent='';}
+  if(!email||!tel||!senha||!senha2){toast('Preencha todos os campos','er');return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){toast('E-mail inválido','er');return;}
+  if(senha.length<6){toast('A nova senha precisa ter no mínimo 6 caracteres','er');return;}
+  if(senha!==senha2){toast('As senhas não conferem','er');return;}
+  showLoad();
+  var r;
+  try{r=await SB.from('professores').select('id,email,telefone').eq('email',email).maybeSingle();}
+  catch(e){hideLoad();toast('Erro de conexão. Tente novamente.','er');console.error('reset check catch:',e);return;}
+  if(r.error){hideLoad();toast('Erro: '+r.error.message,'er');console.error('reset check error:',r.error);return;}
+  if(!r.data||digitsOnly(r.data.telefone)!==digitsOnly(tel)){
+    hideLoad();
+    if(err){err.textContent='E-mail ou WhatsApp não conferem com o cadastro.';err.classList.add('show');}
+    return;
+  }
+  var up;
+  try{up=await SB.from('professores').update({senha:senha}).eq('id',r.data.id);}
+  catch(e2){hideLoad();toast('Erro de conexão. Tente novamente.','er');console.error('reset update catch:',e2);return;}
+  hideLoad();
+  if(up.error){toast('Erro ao redefinir senha: '+up.error.message,'er');console.error('reset update error:',up.error);return;}
+  document.getElementById('pl_email').value=email;
+  document.getElementById('pl_senha').value='';
+  document.getElementById('rs_senha').value='';
+  document.getElementById('rs_senha2').value='';
+  switchProfTab('login');
+  toast('Senha redefinida. Entre com a nova senha.','ok');
 }
 async function profLogin(){
   var email=document.getElementById('pl_email').value.trim().toLowerCase();
